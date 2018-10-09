@@ -1,0 +1,36 @@
+---
+output:
+ html_document:
+  toc: true
+  toc_depth: 1
+  toc_float:
+   collapsed: false
+---
+
+```{r, child = 'cdtcsschunks.Rmd'}
+```
+
+<div id='toc-index' class='toc-index-class'>
+
+# [CDT GUI](cdt_file_menu.html)
+
+## [CDT Main Window](cdt_file_menu.html#cdt.main.win)
+
+### [Menu Bar](cdt_file_menu.html#menu.bar)
+
+### [Toolbars](cdt_file_menu.html#toolbars)
+
+### [Open Files](cdt_file_menu.html#open.files)
+
+### [Input and Command Panels](cdt_file_menu.html#cmd.panel)
+
+### [Map and Table View](cdt_file_menu.html#map.view)
+
+### [Output Message](cdt_file_menu.html#out.msg)
+
+### [Status Bar](cdt_file_menu.html#status.bar)
+
+</div>
+
+```{r, child = '_generated_date.Rmd'}
+```

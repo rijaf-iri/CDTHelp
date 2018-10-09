@@ -1,0 +1,39 @@
+
+```{r, echo = FALSE}
+anchor.point <- function(...)
+						paste0('<a name="',
+						as.character(eval(substitute(alist(...)))),
+						'"></a>')
+menuselection <- function(...) {
+  menu <- paste(as.character(eval(substitute(alist(...)))), collapse = ' &#8227; ')
+  paste0("<span class='menuselection'>", menu, "</span> &nbsp;")
+}
+button <- function(...)
+					paste("<span class='buttonclass'> &nbsp;",
+					as.character(eval(substitute(alist(...)))),
+					"&nbsp; </span> &nbsp;")
+onglet <- function(...)
+					paste("<span class='ongletclass'> &nbsp;",
+					as.character(eval(substitute(alist(...)))),
+					"&nbsp; </span> &nbsp;")
+dropdownlistBut <- function() "<span class='dropdlistclass'>AA</span><span class='dropdclass'>&#9662;</span>"
+checkbox <- function(...)
+					paste("<img src='images/common/checkbox.png' title='Checkbox' class='radiochckbutclass' /><span class='radiochcktextclass'> &nbsp;",
+					as.character(eval(substitute(alist(...)))),
+					"&nbsp; </span> &nbsp;")
+radiobutton <- function(...) 
+					paste("<img src='images/common/radiobutton.png' title='Radio button' class='radiochckbutclass' /><span class='radiochcktextclass'> &nbsp;",
+					as.character(eval(substitute(alist(...)))),
+					"&nbsp; </span> &nbsp;")
+img.caption <- function(...)
+						paste("<span class='img-caption'>",
+						as.character(eval(substitute(alist(...)))),
+						"</span>")
+put.image <- function(path, caption = NULL, height = 100, width = 100){
+			paste0("<center>", "\n",
+			"![](", path, "){height=", height, "%", " width=", width, "%", "}", "\n",
+			if(!is.null(caption)) paste("<span class='img-caption'>", caption, "</span>"), "\n",
+			"</center>", "\n",
+			"<br>")
+		}
+```
