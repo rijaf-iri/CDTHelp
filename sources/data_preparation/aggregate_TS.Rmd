@@ -1,0 +1,17 @@
+---
+title: "Aggregating Time Series"
+output:
+  html_document:
+    toc: false
+---
+
+<!--
+image dir /images/data_prepraration/aggregate_data
+-->
+
+`r put.image("images/data_prepraration/aggregate_data/aggregate_TS.png", height = 50, width = 55)`
+
+
+`r put.image("images/data_prepraration/aggregate_data/set_ncdf.png", height = 30, width = 35)`
+
+

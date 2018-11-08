@@ -1,0 +1,148 @@
+---
+title: "CDT Input Data Format"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+CDT can handle hourly, daily, pentad (5-days), dekadal (10-days) or monthly series. A file can contains one station or several stations series. Each input stations data should be stored in a text/ASCII or CSV (Comma-separated values) format file.
+
+## CDT stations data format `r anchor.point('cdt.format.data')`
+
+All the series from different stations for one variable are put together on a single file. It is the standard input data format used by CDT, in which the first line is the ID or name of the stations (__*avoid putting space in stations name*__), the second  and third lines are longitude  and latitude of the stations, and the fourth line is elevation data in meter (if it exists), and the following lines contain the observations, and the first column is the date of observations. The following tables show the format of the data
+
+```{r datanoelev, echo = FALSE, results = 'asis'}
+dat <- read.table('../R_Data/daily_rr.txt')
+print(xtable::xtable(dat, caption = "CDT stations data format without elevation data"), type = 'html',
+			caption.placement = 'top', include.rownames = FALSE, include.colnames = FALSE,
+			html.table.attributes = 'id=\"cdtInputData\" class=\"cdtInputData0\" border=0')
+```  
+<br>
+
+```{r datawelev, echo = FALSE, results = 'asis'}
+dat <- read.table('../R_Data/daily_rr_elv.txt')
+print(xtable::xtable(dat, caption = "CDT stations data format with elevation data"), type = 'html',
+			caption.placement = 'top', include.rownames = FALSE, include.colnames = FALSE,
+			html.table.attributes = 'id=\"cdtInputData\" class=\"cdtInputData0\" border=0')
+```   
+<br>
+
+**_Missing values_**
+
+> CDT use "-99" to flag missing values in the data series and "-9999" for anomalies data. You can use your own missing values flag (the  missing values code you provided must be exactly the same as used in the data; for example, "-99." and "-99.0" are different; you can not use "-99." when "-99.0" is used in the input data series; it will produce some odd results).
+
+**_Date format_** 
+
+> Date format must be grouped.  
+> 
+> **Hourly series** : **`YYYYMMDDHH`**, YYYY is the year, MM the months (the month values must have two digits 01 - 12), DD the days (the day values must have two digits 01 - 31), HH the hours (the hour of day must be in range 00 - 23).
+> **Daily series** : **`YYYYMMDD`**, YYYY: year, MM: month and DD: day.
+> **Pentad series** : **`YYYYMMP`**, YYYY: year, MM: month and P: pentad. There are 6 pentads in a calendar month. The pentad must be 1, 2, 3, 4, 5 or 6; pentad 1 (contains the days from the 1st to 5th), pentad 2 (6th to 10th), pentad 3 (11th to 15th), pentad 4 (16th to 20th), pentad 5 (21st to 25th) and pentad 6 (26th to the end of the month).
+> **Dekadal series** : **`YYYYMMD`** YYYY: year, MM: month and D: dekad. There are 3 dekads in a calendar month. The dekad must be 1, 2 or 3; dekad 1 (contains the days from the 1st to 10th), dekad 2 (11th to 20th) and dekad 3 (21st to the end of the month).  
+> **Monthly series** : **`YYYYMM`**, YYYY: year and MM: month. 
+
+## Setting date range `r anchor.point('cdt.date.range')`
+
+When you perform an operation or a temporal analysis, a date range or time range is required. You can set a date range parameter by clicking on a button `r button('Set Date Range')` located on the dialog box or [the left panel command](cdt_file_menu.html#cmd.panel). A dialog box will be displayed allows you to specify the start and end date of the period to be considered.
+
+`r put.image("images/cdt_file/date_range.png", height = 50, width = 40)`
+
+>  **Note**
+>  The date must be real, for example, if you enter 2015-06-31 or 2015-02-29, this will cause an error.
+
+## CDT coordinates file `r anchor.point('cdt.coords.data')`
+
+Sometimes CDT ask for the coordinates of the stations if it not included in the file containing the data, i.e., the coordinates are stored in a separate file.
+CDT has a specific format to store the coordinates, in which the first column contains the ID or name of the stations (__*avoid putting space*__), the second column is for the long name of the stations, the third and fourth are longitude and latitude of the stations, the fifth column contains the elevation data in meter, and the following columns can contain any information about the stations.
+You can edit the coordinates file on Excel spreadsheet and save it as a Comma Separated Values (CSV) file.  It is useful for working on empty cells. If you edit the coordinates on Excel spreadsheet, you can leave blank the cells with missing values or fill it with missing values flag. 
+
+`r put.image("images/cdt_file/coordinates_file.png", width = 80)`
+
+ >  The columns 1 to 5 must be present in the coordinates file and the order must be respected. The column containing the ID or name of the stations must be complete, this column shall not contain blank or missing values. The columns containing longitude and latitude of the stations shall not contain blank if you edit the coordinates file on Excel spreadsheet, you have to fill the blank with missing value code. You can leave blank the columns containing the long name and the elevation if they are not available.
+
+You can add a header to this file, and specify it when you import the data to CDT.
+
+## NetCDF data `r anchor.point('cdt.ncdf.data')`
+
+[NetCDF](http://www.unidata.ucar.edu/software/netcdf/docs) files contain one or more variables, which are usually structured as regular multi-dimensional arrays. CDT can handle 2D (lat/lon) NetCDF data with several variables, in other words ***data for each date should be stored in a separate file***, a file may contain only data for one hour, day, pentad, dekad or month. For example, if we have a dekadal rainfall series, then the data for each dekad should be stored in a separate file as follows :
+
+```
+rfe2014_01-dk1
+rfe2014_01-dk2
+rfe2014_01-dk3
+rfe2014_02-dk1
+rfe2014_02-dk2
+ ......
+``` 
+The format of the filenames is arbitrary. To read and write NetCDF file, CDT use the `ncdf4` package.
+
+Any time you open a NetCDF file, you will be asked to provide a sample file and select the target variable and the order of the coordinates (lat-lon or lon-lat).
+The following examples show the order of the dimensions.
+
+```{r ncdf_open1}
+## Elevation/bathymetry, longitude (X) goes first then latitude (Y)
+require(ncdf4)
+nc <- nc_open('../R_Data/DEM_2_Arc-Minute.nc')
+nc
+```  
+```{r ncdf_close1, echo = FALSE}
+nc_close(nc)
+```  
+
+```{r ncdf_open2}
+## TAMSAT dekadal precipitation, latitude (lat) goes first then longitude (lon)
+## Note that there is a 3rd dimension time, but it only has one value for this dekad.
+nc <- nc_open('../R_Data/rfe2014_01-dk3.nc')
+nc
+```  
+```{r ncdf_close2, echo = FALSE}
+nc_close(nc)
+```  
+
+Example of a NetCDF file containing 3 variables.
+
+```{r ncdf_open3}
+## File containing the parameters of the Bernoulli-Gamma distribution
+## The file contains 3 variables (prob, scale and shape)
+nc <- nc_open('../R_Data/Bernoulli-Gamma_Pars.STN_7.nc')
+nc
+```  
+```{r ncdf_close3, echo = FALSE}
+nc_close(nc)
+```  
+
+## NetCDF filename format `r anchor.point('cdt.ncdf.ffrmt')`
+
+CDT uses a specific encoding to represent netcdf file names. Since each file only contains the data for a single date (one file per date), then it is necessary to encode the file names to have a time series.
+
+CDT uses `%s` to represent the year, month, dekad, pentad, day or hour.
+
+*Examples:*
+
+Suppose your file names are of the form *rfe_2016-06-dk3.nc*, you have to replace the years, months and dekads by **_%s_**. So you need to encode your file names when you specify them on CDT as follow: _**rfe_%s-%s-dk%s.nc**_.
+
+Here are some examples of how to format a netcdf file names.
+
+Time step |  netcdf file name            | CDT format
+--------- |  ----------------            | ----------
+hourly    |  precip_2016060112.nc        | precip_%s%s%s%s.nc
+daily     |  rfe_20160626.nc             | rfe_%s%s%s.nc
+daily     |  tmax_mrg_2016-06-26_ALL.nc  | tmax_mrg_%s-%s-%s_ALL.nc
+pentad    |  tmin_2016-01-5_Adj.nc       | tmin_%s-%s-%s_Adj.nc
+dekadal   |  precip_2016063.nc           | precip_%s%s%s.nc
+dekadal   |  rfe_2016-06-dk3.nc          | rfe_%s-%s-dk%s.nc
+monthly   |  tmin_2016-06.nc             | tmin_%s-%s.nc
+monthly   |  tmax_201606_CLM.nc          | tmax_%s%s_CLM.nc
+
+
+## Setting NetCDF data `r anchor.point('cdt.ncdf.setting')`
+
+So that CDT can correctly read all NetCDF files, you have to provide a sample from the data and specify the filename format. On a dialog box or [the left panel command](cdt_file_menu.html#cmd.panel) displayed to enter the input and parameters for an operation, click on the button `r button('Settings')` to set the NetCDF data parameters.
+
+`r put.image("images/cdt_file/set_ncdf.png", height = 50, width = 35)`
+
+1. Provide a sample from the NetCDF files. If the file is already opened in the [Open Files](cdt_file_menu.html#open.files) list box, select it in the drop down list, if not, browse with the button ![][browsebutf] in the right to open it.
+2. Specify the [NetCDF filename format](#cdt.ncdf.ffrmt)

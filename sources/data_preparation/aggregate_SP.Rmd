@@ -1,0 +1,14 @@
+---
+title: "Aggregate/Disaggregate Spatial NetCDF data"
+output:
+  html_document:
+    toc: false
+---
+
+<!--
+image dir /images/data_prepraration/aggregate_data
+-->
+
+`r put.image("images/data_prepraration/aggregate_data/aggregate_SP.png", height = 60, width = 65)`
+
+

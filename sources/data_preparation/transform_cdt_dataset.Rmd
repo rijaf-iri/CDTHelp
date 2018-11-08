@@ -1,0 +1,12 @@
+---
+title: "Transform NetCDF files into CDT Dataset"
+output:
+  html_document:
+    toc: false
+---
+
+<!--
+image dir /images/data_prepraration/format_cdt_data
+-->
+
+`r put.image("images/data_prepraration/format_cdt_data/cdt_datasets.png", height = 60, width = 55)`

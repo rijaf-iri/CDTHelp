@@ -11,7 +11,7 @@ menuselection <- function(...) {
 button <- function(...)
 					paste("<span class='buttonclass'> &nbsp;",
 					as.character(eval(substitute(alist(...)))),
-					"&nbsp; </span> &nbsp;")
+					"</span> &nbsp;")
 onglet <- function(...)
 					paste("<span class='ongletclass'> &nbsp;",
 					as.character(eval(substitute(alist(...)))),

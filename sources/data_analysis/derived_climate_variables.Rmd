@@ -1,0 +1,13 @@
+---
+title: "Derived Climate Variables"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+<!--
+image dir /images/data_analysis/derived_climate_variables
+-->

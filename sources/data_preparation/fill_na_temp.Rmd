@@ -1,0 +1,13 @@
+---
+title: "Filling missing dekadal temperature values"
+output:
+  html_document:
+    toc: false
+---
+
+<!--
+image dir /images/data_prepraration/format_cdt_data
+-->
+
+`r put.image("images/data_prepraration/format_cdt_data/fill_dek_temp.png", height = 50, width = 55)`
+

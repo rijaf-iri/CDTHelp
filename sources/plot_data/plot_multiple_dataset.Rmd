@@ -1,0 +1,14 @@
+---
+title: "Plot multiple data sets"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+<!--
+image dir /images/plot_data/plot_multiple_dataset
+-->
+

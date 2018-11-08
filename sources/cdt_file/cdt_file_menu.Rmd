@@ -8,25 +8,33 @@ output:
       collapsed: false 
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.path = 'images/R_images/cdt_file_menu.')
+## Starting CDT `r anchor.point('cdt.starting')`
+
+If R is not open yet, open it by clicking on its icon. To run CDT, load CDT package by entering `library(CDT)` at the prompt. If you are using `RGui`, you can load CDT package by using the menu `Packages`, then click the sub-menu `Load package...`, and select CDT from the list. You can start CDT by entering the command `startCDT()`.
+
+```{r collapse=TRUE}
+# Load CDT library
+library(CDT)
 ```
 
-<br>
-
-## CDT Main Window `r anchor.point('cdt.main.win')`
+```{r eval=FALSE}
+# Starting CDT
+startCDT()
+```
 
 When CDT starts, you are presented with the GUI as shown in the figure.
 
 `r put.image("images/cdt_file/cdt_main0.png", height = 80, width = 80)`
 
-After you choose a function from the menu to execute, the GUI is transformed as follows (the numbers 1 through 7 in red-cyan circles are presented below)
+## CDT Main Window `r anchor.point('cdt.main.win')`
+
+After you select a function from the menu to execute, the GUI is transformed as follows (the numbers 1 through 7 in red-cyan circles are presented below)
 
 `r put.image("images/cdt_file/cdt_main.png")`
 
  >  Your window decorations (title bar, etc.) may appear different depending on your operating system and window manager.
 
-CDT GUI is divided into seven areas:
+CDT GUI is divided into seven components:
 
 1. Menu Bar
 2. Toolbars
@@ -74,9 +82,9 @@ So, you can:
 
 ##### NetCDF file
 
-You can load a NetCDF file into CDT using the menu options `r menuselection('File','Open Netcdf file')` an Open File dialog will come up prompting you to select the file, then another dialog box will appear for allowing the selection of the variable and coordinates.
+You can load a NetCDF file into CDT using the menu options `r menuselection('File','Open NetCDF file')`, an Open File dialog will come up prompting you to select the file, then another dialog box will appear for allowing the selection of the variable and coordinates.
 
-`r put.image("images/cdt_file/open_ncdf.png", height = 50, width = 60)`
+`r put.image("images/cdt_file/open_ncdf.png", height = 40, width = 50)`
 
 Through this dialog box, you can:
 
@@ -89,22 +97,70 @@ Through this dialog box, you can:
 
 The menu `r menuselection('File','Open ESRI Shapefile')`  allows to load shapefiles into CDT.
 
-##### Save table and image
+##### Save table `r anchor.point('save.table')`
 
-The menu `r menuselection('File','Save table')`  allows to save a table (i.e., a `data.frame`) opened on the right panel. If you want to save an opening table under a new name, use the menu `r menuselection('File','Save table As...')`.
+The menu `r menuselection('File','Save table')`  allows to save a table (i.e., a `data.frame`) opened on the right panel.
 
-You can save a displayed image as JPEG from the menu `r menuselection('File','Save Image As...')`.
+If you want to save an opening table under a new name or new file extension, use the menu `r menuselection('File','Save table As...')`, this will pop up a dialog box asking you to select or enter the filename to save the table.
+
+`r put.image("images/cdt_file/save_table.png", height = 50, width = 50)`
+
+You can save a table as a text file or a CSV file.
+
+If you enter a file that already exists, the dialog box will prompt you for confirmation whether the existing file should be overwritten or not.
+
+##### Save image `r anchor.point('save.image')`
+
+You can save an image displayed on the right panel by using the menu `r menuselection('File','Save Image As...')`. It will open a dialog box in which you can enter the file to save the image and define the resolution of the image. 
+
+`r put.image("images/cdt_file/save_image1.png", height = 40, width = 50)`
+
+1.  Enter the name of the file to save the image (the image will be saved in your working directory) or the full path to the file. You can save the image in JPEG or PNG format. When typing a filename, do not forget to add the extension on the filename (**Example**: *my_image.jpg* or *my_image.png*).
+
+	You can browse the location where you want to save the image by clicking on ![][browsebutf], this will pop up a dialog box asking you to select or enter the filename to save the image.
+
+	`r put.image("images/cdt_file/save_image2.png", height = 60, width = 60)`
+
+2. Set the image resolution by selecting the unit to use and providing the width and height of the image. The units can be `px` (pixels), `in` (inches), `cm` (centimeters) or `mm` (millimeters). `width` and `height` are given by the selected unit. The resolution is used for units other than pixels and expressed in `ppi` (pixels per inch),  which is required to convert points to pixels.
 
 ##### CDT Configurations
 
-The menu option `r menuselection('File','Configurations')` allows to change CDT working directory and set the missing values code.
+The menu `r menuselection('File','Configuration')` allows to select the language, set the missing values code, change the working directory, and configure the Tck/Tk libraries.
 
-`r put.image("images/cdt_file/cdt_config.png", height = 50, width = 60)`
+The tab `r onglet('CDT Configuration')` allows to set general CDT configuration options
 
-1. allows to browse a directory tree to set the working directory
-2. allows to set missing values code for the whole session of CDT
-3. allows to change the path to Tktable library if you change the installation directory or installed separately
-4. same as 3. but for BWidget library
+`r put.image("images/cdt_file/cdt_config.png", height = 45, width = 55)`
+
+1. allows to select the language to use during the session
+2. allows to set the missing values code for the whole session of CDT
+3. allows to set the missing values code for anomalies data for the whole session of CDT
+4. allows to browse a directory tree to set the working directory 
+
+ >  Changing "CDT Configuration - Language" needs to restart CDT to take effect 
+
+The tab `r onglet('Tcl Configuration')` allows to specify the Tcl/Tk libraries installation
+
+**_Mac and Linux_**
+
+`r put.image("images/cdt_file/tcl_config_mac.png", height = 40, width = 50)`
+
+1. Check this box if the package **Tktable** is present in the list of directories used by the tcl command `package` to find packages. Locate where the Tktable directory is installed and check if it is located under the list of directories used by the tcl variable `$auto_path`. Run this command in your Terminal `echo 'puts $auto_path' | tclsh`, it will display a list of directories where Tcl search for packages.
+2. If **(1)** is unchecked, enter here the full path to the directory where **Tktable** is located or browse with the button ![][browsebutf] in the right.
+3. Check this box if the package **BWidget** is present in the list of directories used by the tcl command `package` to find packages.
+4. If **(3)** is unchecked, enter here the full path to the directory where **BWidget** is located or browse with the button ![][browsebutf] in the right.
+
+**_Windows_**
+
+`r put.image("images/cdt_file/tcl_config_win.png", height = 55, width = 45)`
+
+1. Check this box if you want to use a Tcl/Tk library (for example: ActiveTcl) other than the one installed by default with R.
+2. Provide here the full path to the Tcl binaries directory.
+3. Check this box if the package **Tktable** is located under the Tcl libraries directory.
+4. If **(3)** is unchecked, enter here the full path to the directory where **Tktable** is located or browse with the button ![][browsebutf] in the right.
+5. Check this box if the package **BWidget** is located under the Tcl libraries directory.
+6. If **(5)** is unchecked, enter here the full path to the directory where **BWidget** is located or browse with the button ![][browsebutf] in the right.
+
+ >  Changing "Tcl Configuration" needs a new R session to take effect.
 
 ##### Exit CDT
 
@@ -119,9 +175,9 @@ You can access the others menus through the navigation bar located at the top of
 The toolbar provides access to few functions in the File menu, plus additional tools for interacting with the displayed image. Each toolbar item has pop-up help available. Hold your mouse over the item and a short description of the tool’s purpose will be displayed.
 
 * ![][openfile] allows to load [data.frame](#data.frame) into CDT, it's the same as the menu `r menuselection('File','Open data.frame')`.
-* ![][saveimage] allows to save current displayed image as JPEG, same as the menu `r menuselection('File','Save Image As...')`.
+* ![][saveimage] allows to save current displayed image in the right panel as JPEG or PNG, same as the menu `r menuselection('File','Save Image As...')`.
 * ![][opentable] allows to open a `data.frame` and directly display it on a table without loading into CDT.
-* ![][savetable] allows to save a table, same as `r menuselection('File','Save table')`.
+* ![][savetable] allows to [save a table](#save.table) displayed in the right panel, same as `r menuselection('File','Save table')`.
 * ![][executetask] allows to execute task from different functions listed in the menus.
 * ![][spinbox] a spinbox allows to specify the actual dimensions (height and width) of the visible image.
 * ![][redrawplot0] redraws displayed image after changing the height or width from the spinbox. After any change on the dimensions of the image through the spinbox, this button will be activated and becomes ![][redrawplot1], you have to redraw the plot to get the new dimensions.
@@ -138,9 +194,10 @@ You can delete the data by selecting the corresponding filename and then right c
 
 ### Input and Command Panels `r anchor.point('cmd.panel')`
 
-Each time you start a CDT function through the menu, an dialog box will come up prompting you to enter the inputs and  outputs files and directories related to this function, as well as the required parameters so that the function runs correctly. Then CDT provides a command panel displayed in this area to work with the results, such as, display table or plot/map, select a stations, change options and execute other tasks.
+CDT has two ways to set parameters when you use the menu: a dialog box and the left command panel.
+Each time you start a CDT function through the menu, an dialog box will come up prompting you to enter the inputs and outputs files and directories related to this function, as well as the required parameters so that the function runs correctly. After you filled up all required fields, you have to click on the button ![][executetask] on the toolbar to execute.
 
-Sometimes, CDT goes directly to this panel without going through a dialog box, in such case, the panel gives you a way to enter the input, set all parameters and run the command.
+If the function needs to display table or plot, CDT provides a command panel displayed in the left panel to set all required parameters and to work with the results, such as, display table or plot/map.
 
 ### Map and Table View `r anchor.point('map.view')`
 
@@ -160,13 +217,8 @@ When loading  data or running some functions, you can track and follow messages 
 
 On the left side of the status bar, you can get a long description of the widget (button, input entry, list box, combo box, ...) you are hovering over (not available for all widgets). In addition, when you hold your mouse over the widget, a short description of the widget’s purpose will be displayed.
 
-`r put.image("images/cdt_file/status_bar1.png", height = 150)`
+`r put.image("images/cdt_file/status_bar1.png", height = 300)`
 
 When a map and graph are displayed, the right side of the status bar shows the current position of the mouse as a long/lat coordinate, following it while moving across the map view. Next to the coordinate display you will find the name of the polygon (region, district, ...) displayed if the map is from an ESRI shapefile.
 
-`r put.image("images/cdt_file/status_bar2.png", height = 150)`
-
-<!-- 
-```{r, child = "_generated_date.Rmd"}
-```
- -->
+`r put.image("images/cdt_file/status_bar2.png", height = 300)`

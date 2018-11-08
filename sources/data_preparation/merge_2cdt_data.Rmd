@@ -1,0 +1,16 @@
+---
+title: "Merge two CDT Station Data"
+output:
+  html_document:
+    toc: false
+---
+
+If you want to combine two CDT station data formats from two different files into one file, use `r menuselection('Data Preparation','Merge two CDT Station Data')`, it will display a dialog box.
+
+`r put.image("images/data_prepraration/merge_filter_cdt_data/merge2_cdt_data.png", height = 50, width = 55)`
+
+1. Select the the first CDT station data with the drop down list if it is already loaded, or open it through `r button('...')`
+2. Select the second CDT station data.
+3. Enter the name of the file to save the merged CDT station data or the full path to the file. You can also click on `r button('...')`, it opens a file dialog where you can select the name, path and type of file (txt or csv).
+
+Click on the button ![][executetask] to execute. 

@@ -1,0 +1,33 @@
+---
+title: "Data Format Conversion"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+<!--
+image dir /images/data_prepraration/data_conversion
+-->
+
+## Conversion to CPT data format `r anchor.point('conversion.cpt')`
+
+`r put.image("images/data_prepraration/data_conversion/convert_cpt.png", height = 50, width = 55)`
+
+
+`r put.image("images/data_prepraration/data_conversion/set_ncdf1.png", height = 35, width = 40)`
+
+
+## Converting NetCDF/GeoTIFF/ESRI .hdr Labelled `r anchor.point('conversion.raster')`
+
+`r put.image("images/data_prepraration/data_conversion/convert_raster.png", height = 50, width = 55)`
+
+## Create GrADS Descriptor File from CDT NetCDF files `r anchor.point('conversion.grads')`
+
+`r put.image("images/data_prepraration/data_conversion/grads_ctl.png", height = 55, width = 60)`
+
+
+`r put.image("images/data_prepraration/data_conversion/set_ncdf2.png", height = 35, width = 40)`
+

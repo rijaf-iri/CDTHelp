@@ -1,0 +1,13 @@
+---
+title: "Homogeneity Test"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+<!--
+image dir /images/quality_control/homogeneity_test
+-->

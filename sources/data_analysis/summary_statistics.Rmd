@@ -1,0 +1,13 @@
+---
+title: "Summary Statistics"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+<!--
+image dir /images/data_analysis/summary_statistics
+-->

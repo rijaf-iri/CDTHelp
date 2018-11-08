@@ -121,6 +121,11 @@ span.menuselection {
     height: 1.2em;
 }
 
+#cdtIconsBr {
+    width: 2.2em;
+    height: 1.5em;
+}
+
 .cdtIcons1 {
     background: #add8e6;
 }
@@ -149,7 +154,7 @@ span.buttonclass {
     font-size: 0.9em;
     background-color: #e6e6e6;
     /*font-weight: bold;*/
-    padding: 1px 3px;
+    padding: 3px 3px;
     border-style: solid;
     border-color: #f2f2f2 #d9d9d9 #d9d9d9 #f2f2f2;
     white-space: nowrap;
@@ -191,19 +196,6 @@ span.radiochcktextclass {
     /*font-size: 1.0em;*/
     background-color: #d9d9d9;
     padding: 1px 8px 1px 1px;
-}
-
-
-/**** sary ****/
-
-#sakakely {
-    text-align: center;
-}
-
-#sakakely img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 

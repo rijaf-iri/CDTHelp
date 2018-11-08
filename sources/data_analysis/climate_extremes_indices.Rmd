@@ -1,0 +1,13 @@
+---
+title: "Climate Extremes Indices"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+---
+
+<!--
+image dir /images/data_analysis/climate_extremes_indices
+-->

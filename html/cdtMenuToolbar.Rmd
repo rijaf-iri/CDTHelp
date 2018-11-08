@@ -7,7 +7,7 @@
 [closetab1]: images/common/closetabs.png "Close active tab" id=cdtIcons class=cdtIcons
 [opentable]: images/common/open_table24.gif "Open table" id=cdtIcons class=cdtIcons
 [savetable]: images/common/save_table24.gif "Save table" id=cdtIcons class=cdtIcons
-[browsebutf]: images/common/browsefiledir.png "Browse for a file" id=cdtIcons class=cdtIcons 
+[browsebutf]: images/common/browsefiledir.png "Browse for a file" id=cdtIconsBr class=cdtIconsBr 
 [dropdownarrow]: images/common/dropdown.png "Drop down arrow" id=cdtIcons class=cdtIcons 
 
 [spinbox]: images/common/spinH.png "Spinbox" id=cdtSpin class=cdtSpin width=130px height=70px

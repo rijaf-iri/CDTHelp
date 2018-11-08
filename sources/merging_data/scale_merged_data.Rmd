@@ -1,0 +1,10 @@
+---
+title: "Scale merged data"
+output:
+  html_document:
+    toc: true
+---
+
+<!--
+image dir /images/merging_data/scale_merged_data
+-->

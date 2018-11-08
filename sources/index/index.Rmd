@@ -10,9 +10,17 @@ output:
 ```{r, child = 'cdtcsschunks.Rmd'}
 ```
 
+<style type="text/css">
+div.tocify {
+ max-height: 60%;
+}
+</style>
+
 <div id='toc-index' class='toc-index-class'>
 
 # [CDT GUI](cdt_file_menu.html)
+
+## [Starting CDT](cdt_file_menu.html#cdt.starting)
 
 ## [CDT Main Window](cdt_file_menu.html#cdt.main.win)
 
@@ -29,6 +37,104 @@ output:
 ### [Output Message](cdt_file_menu.html#out.msg)
 
 ### [Status Bar](cdt_file_menu.html#status.bar)
+
+# [CDT Input Data Format](cdt_data_input.html)
+
+## [CDT stations data format](cdt_data_input.html#cdt.format.data)
+
+## [Setting date range](cdt_data_input.html#cdt.date.range)
+
+## [CDT coordinates file](cdt_data_input.html#cdt.coords.data)
+
+## [NetCDF data](cdt_data_input.html#cdt.ncdf.data)
+
+## [NetCDF filename format](cdt_data_input.html#cdt.ncdf.ffrmt)
+
+## [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting)
+
+# [Format CDT Input data](format_cdt_data.html)
+
+## [Multiple Files](format_cdt_data.html#multiple.files)
+
+## [Single File](format_cdt_data.html#single.file)
+
+# [Merge two CDT Station Data](merge_2cdt_data.html)
+
+# [Filtering CDT Station Data](filter_cdt_data.html)
+
+# [Transform NetCDF files into CDT Dataset](transform_cdt_dataset.html)
+
+# [Download Data](download_data.html)
+
+## [Download DEM](download_data.html#download.dem)
+
+## [Download Country boundary](download_data.html#download.shp)
+
+## [Download RFE](download_data.html#download.rfe)
+
+# [Filling missing dekadal temperature values](fill_na_temp.html)
+
+# [Data Format Conversion](data_conversion.html)
+
+## [Conversion to CPT data format](data_conversion.html#conversion.cpt)
+
+## [Converting NetCDF/GeoTIFF/ESRI .hdr Labelled](data_conversion.html#conversion.raster)
+
+## [Create GrADS Descriptor File from CDT NetCDF files](data_conversion.html#conversion.grads)
+
+# [Aggregating Time Series](aggregate_TS.html)
+
+# [Aggregate/Disaggregate Spatial NetCDF data](aggregate_SP.html)
+
+# [Check Stations Coordinates](check_stations_coords.html)
+
+# [Assess Data Availability](assess_availability.html)
+
+# [Quality Control](quality_control.html)
+
+## [Rainfall](quality_control.html)
+
+## [Temperatures](quality_control.html)
+
+# [Homogeneity Test](homogeneity_test.html)
+
+# [Merging Rainfall](merging_rainfall.html)
+
+# [Merging Temperature](merging_temperature.html)
+
+# [Scale merged data](scale_merged_data.html)
+
+# [Updating Dekadal Rainfall](update_dekadal_rainfall.html)
+
+# [Validation](validation.html)
+
+# [Data Extraction](data_extraction.html)
+
+# [Summary Statistics](summary_statistics.html)
+
+# [Derived Climate Variables](derived_climate_variables.html)
+
+# [Climatologies and Anomalies](climatologies_anomalies.html)
+
+# [Spatial Analysis](spatial_analysis.html)
+
+# [Daily Rainfall Analysis](daily_rainfall_analysis.html)
+
+# [Rainy Season Characteristics](rainy_season_characteristics.html)
+
+# [Rainy Season Analysis](rainy_season_analysis.html)
+
+# [Climate Extremes Indices](climate_extremes_indices.html)
+
+# [Drought Indices](drought_indices.html)
+
+# [Plot CDT Station Data](plot_station_data.html)
+
+# [Plot CDT Gridded Dataset](plot_cdt_dataset.html)
+
+# [Plot NetCDF Data](plot_ncdf.html)
+
+# [Plot multiple data sets](plot_multiple_dataset.html)
 
 </div>
 
