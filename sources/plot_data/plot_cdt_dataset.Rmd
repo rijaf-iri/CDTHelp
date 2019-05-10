@@ -11,4 +11,3 @@ output:
 <!--
 image dir /images/plot_data/plot_cdt_dataset
 -->
-
