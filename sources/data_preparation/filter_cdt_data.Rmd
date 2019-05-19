@@ -10,5 +10,5 @@ image dir /images/data_prepraration/merge_filter_cdt_data
 -->
 
 
-`r put.image("images/data_prepraration/merge_filter_cdt_data/filter_cdt_data.png", height = 40, width = 45)`
+`r put.image("images/data_prepraration/merge_filter_cdt_data/filter_cdt_data.gif", height = 40, width = 45)`
 

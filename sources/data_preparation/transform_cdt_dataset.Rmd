@@ -9,4 +9,4 @@ output:
 image dir /images/data_prepraration/format_cdt_data
 -->
 
-`r put.image("images/data_prepraration/format_cdt_data/cdt_datasets.png", height = 60, width = 55)`
+`r put.image("images/data_prepraration/format_cdt_data/cdt_datasets.gif", height = 60, width = 55)`

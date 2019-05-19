@@ -22,6 +22,7 @@ vignettes/*.pdf
 
 build_fun.R
 build_help.R
+convert_to_gif.R
 
 # All html
 html/libs/

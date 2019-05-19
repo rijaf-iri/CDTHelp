@@ -48,7 +48,7 @@ print(xtable::xtable(dat, caption = "CDT stations data format with elevation dat
 
 When you perform an operation or a temporal analysis, a date range or time range is required. You can set a date range parameter by clicking on a button `r button('Set Date Range')` located on the dialog box or [the left panel command](cdt_file_menu.html#cmd.panel). A dialog box will be displayed allows you to specify the start and end date of the period to be considered.
 
-`r put.image("images/cdt_file/date_range.png", height = 50, width = 40)`
+`r put.image("images/cdt_file/date_range.gif", height = 50, width = 40)`
 
 >  **Note**
 >  The date must be real, for example, if you enter 2015-06-31 or 2015-02-29, this will cause an error.
@@ -59,7 +59,7 @@ Sometimes CDT ask for the coordinates of the stations if it not included in the 
 CDT has a specific format to store the coordinates, in which the first column contains the ID or name of the stations (__*avoid putting space*__), the second column is for the long name of the stations, the third and fourth are longitude and latitude of the stations, the fifth column contains the elevation data in meter, and the following columns can contain any information about the stations.
 You can edit the coordinates file on Excel spreadsheet and save it as a Comma Separated Values (CSV) file.  It is useful for working on empty cells. If you edit the coordinates on Excel spreadsheet, you can leave blank the cells with missing values or fill it with missing values flag. 
 
-`r put.image("images/cdt_file/coordinates_file.png", width = 80)`
+`r put.image("images/cdt_file/coordinates_file.gif", width = 80)`
 
  >  The columns 1 to 5 must be present in the coordinates file and the order must be respected. The column containing the ID or name of the stations must be complete, this column shall not contain blank or missing values. The columns containing longitude and latitude of the stations shall not contain blank if you edit the coordinates file on Excel spreadsheet, you have to fill the blank with missing value code. You can leave blank the columns containing the long name and the elevation if they are not available.
 
@@ -142,7 +142,7 @@ monthly   |  tmax_201606_CLM.nc          | tmax_%s%s_CLM.nc
 
 So that CDT can correctly read all NetCDF files, you have to provide a sample from the data and specify the filename format. On a dialog box or [the left panel command](cdt_file_menu.html#cmd.panel) displayed to enter the input and parameters for an operation, click on the button `r button('Settings')` to set the NetCDF data parameters.
 
-`r put.image("images/cdt_file/set_ncdf.png", height = 50, width = 35)`
+`r put.image("images/cdt_file/set_ncdf.gif", height = 50, width = 35)`
 
 1. Provide a sample from the NetCDF files. If the file is already opened in the [Open Files](cdt_file_menu.html#open.files) list box, select it in the drop down list, if not, browse with the button ![][browsebutf] in the right to open it.
 2. Specify the [NetCDF filename format](#cdt.ncdf.ffrmt)

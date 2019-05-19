@@ -58,7 +58,7 @@ div.tocify {
 
 ## [Single File](format_cdt_data.html#single.file)
 
-# [Merge two CDT Station Data](merge_2cdt_data.html)
+# [Merge two CDT Stations Data](merge_2cdt_data.html)
 
 # [Filtering CDT Station Data](filter_cdt_data.html)
 

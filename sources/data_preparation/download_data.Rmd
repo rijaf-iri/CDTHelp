@@ -15,16 +15,16 @@ image dir /images/data_prepraration/download_data
 
 ## Download DEM `r anchor.point('download.dem')`
 
-`r put.image("images/data_prepraration/download_data/download_dem.png", height = 40, width = 45)`
+`r put.image("images/data_prepraration/download_data/download_dem.gif", height = 40, width = 45)`
 
 
 ## Download Country boundary `r anchor.point('download.shp')`
 
-`r put.image("images/data_prepraration/download_data/download_shp.png", height = 40, width = 45)`
+`r put.image("images/data_prepraration/download_data/download_shp.gif", height = 40, width = 45)`
 
 
 ## Download RFE `r anchor.point('download.rfe')`
 
-`r put.image("images/data_prepraration/download_data/download_rfe.png", height = 50, width = 55)`
+`r put.image("images/data_prepraration/download_data/download_rfe.gif", height = 50, width = 55)`
 
 

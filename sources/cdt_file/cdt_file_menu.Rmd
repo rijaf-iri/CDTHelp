@@ -24,13 +24,13 @@ startCDT()
 
 When CDT starts, you are presented with the GUI as shown in the figure.
 
-`r put.image("images/cdt_file/cdt_main0.png", height = 80, width = 80)`
+`r put.image("images/cdt_file/cdt_main0.gif", height = 80, width = 80)`
 
 ## CDT Main Window `r anchor.point('cdt.main.win')`
 
 After you select a function from the menu to execute, the GUI is transformed as follows (the numbers 1 through 7 in red-cyan circles are presented below)
 
-`r put.image("images/cdt_file/cdt_main.png")`
+`r put.image("images/cdt_file/cdt_main.gif")`
 
  >  Your window decorations (title bar, etc.) may appear different depending on your operating system and window manager.
 
@@ -62,7 +62,7 @@ CDT can open three file types:
 
 To open an text or CSV files, go to the menu `r menuselection('File','Open data.frame')` an Open File dialog will come up prompting you to select the file to be open. 
 
-`r put.image("images/cdt_file/open_file.png", height = 50, width = 50)`
+`r put.image("images/cdt_file/open_file.gif", height = 50, width = 50)`
 
 You can navigate through this dialog box to locate the path of the file to open, you can select a file by double-clicking on it or by selecting it and pressing the Open button.
 
@@ -70,7 +70,7 @@ You can navigate through this dialog box to locate the path of the file to open,
 
 After you selected the file to open, another Open File dialog manager will appear with various options which allows you to precise the format of the `data.frame`.
 
-`r put.image("images/cdt_file/open_file_manager.png", height = 50, width = 60)`
+`r put.image("images/cdt_file/open_file_manager.gif", height = 50, width = 60)`
 
 So, you can:
 
@@ -84,7 +84,7 @@ So, you can:
 
 You can load a NetCDF file into CDT using the menu options `r menuselection('File','Open NetCDF file')`, an Open File dialog will come up prompting you to select the file, then another dialog box will appear for allowing the selection of the variable and coordinates.
 
-`r put.image("images/cdt_file/open_ncdf.png", height = 40, width = 50)`
+`r put.image("images/cdt_file/open_ncdf.gif", height = 40, width = 50)`
 
 Through this dialog box, you can:
 
@@ -103,7 +103,7 @@ The menu `r menuselection('File','Save table')`  allows to save a table (i.e., a
 
 If you want to save an opening table under a new name or new file extension, use the menu `r menuselection('File','Save table As...')`, this will pop up a dialog box asking you to select or enter the filename to save the table.
 
-`r put.image("images/cdt_file/save_table.png", height = 50, width = 50)`
+`r put.image("images/cdt_file/save_table.gif", height = 50, width = 50)`
 
 You can save a table as a text file or a CSV file.
 
@@ -113,13 +113,13 @@ If you enter a file that already exists, the dialog box will prompt you for conf
 
 You can save an image displayed on the right panel by using the menu `r menuselection('File','Save Image As...')`. It will open a dialog box in which you can enter the file to save the image and define the resolution of the image. 
 
-`r put.image("images/cdt_file/save_image1.png", height = 40, width = 50)`
+`r put.image("images/cdt_file/save_image1.gif", height = 40, width = 50)`
 
 1.  Enter the name of the file to save the image (the image will be saved in your working directory) or the full path to the file. You can save the image in JPEG or PNG format. When typing a filename, do not forget to add the extension on the filename (**Example**: *my_image.jpg* or *my_image.png*).
 
 	You can browse the location where you want to save the image by clicking on ![][browsebutf], this will pop up a dialog box asking you to select or enter the filename to save the image.
 
-	`r put.image("images/cdt_file/save_image2.png", height = 60, width = 60)`
+	`r put.image("images/cdt_file/save_image2.gif", height = 60, width = 60)`
 
 2. Set the image resolution by selecting the unit to use and providing the width and height of the image. The units can be `px` (pixels), `in` (inches), `cm` (centimeters) or `mm` (millimeters). `width` and `height` are given by the selected unit. The resolution is used for units other than pixels and expressed in `ppi` (pixels per inch),  which is required to convert points to pixels.
 
@@ -129,7 +129,7 @@ The menu `r menuselection('File','Configuration')` allows to select the language
 
 The tab `r onglet('CDT Configuration')` allows to set general CDT configuration options
 
-`r put.image("images/cdt_file/cdt_config.png", height = 45, width = 55)`
+`r put.image("images/cdt_file/cdt_config.gif", height = 45, width = 55)`
 
 1. allows to select the language to use during the session
 2. allows to set the missing values code for the whole session of CDT
@@ -142,7 +142,7 @@ The tab `r onglet('Tcl Configuration')` allows to specify the Tcl/Tk libraries i
 
 **_Mac and Linux_**
 
-`r put.image("images/cdt_file/tcl_config_mac.png", height = 40, width = 50)`
+`r put.image("images/cdt_file/tcl_config_mac.gif", height = 40, width = 50)`
 
 1. Check this box if the package **Tktable** is present in the list of directories used by the tcl command `package` to find packages. Locate where the Tktable directory is installed and check if it is located under the list of directories used by the tcl variable `$auto_path`. Run this command in your Terminal `echo 'puts $auto_path' | tclsh`, it will display a list of directories where Tcl search for packages.
 2. If **(1)** is unchecked, enter here the full path to the directory where **Tktable** is located or browse with the button ![][browsebutf] in the right.
@@ -151,7 +151,7 @@ The tab `r onglet('Tcl Configuration')` allows to specify the Tcl/Tk libraries i
 
 **_Windows_**
 
-`r put.image("images/cdt_file/tcl_config_win.png", height = 55, width = 45)`
+`r put.image("images/cdt_file/tcl_config_win.gif", height = 55, width = 45)`
 
 1. Check this box if you want to use a Tcl/Tk library (for example: ActiveTcl) other than the one installed by default with R.
 2. Provide here the full path to the Tcl binaries directory.
@@ -188,7 +188,7 @@ The toolbar provides access to few functions in the File menu, plus additional t
 
 Each file loaded into CDT is listed in this listbox, it will avoid loading the file twice.
 
-`r put.image("images/cdt_file/loaded_files.png", height = 50, width = 40)`
+`r put.image("images/cdt_file/loaded_files.gif", height = 50, width = 40)`
 
 You can delete the data by selecting the corresponding filename and then right click on it, on the drop down menu click on `r menuselection('Remove data')`. You can display the `data.frame` on a table by selecting `r menuselection('Open in table')` as well.
 
@@ -217,8 +217,8 @@ When loading  data or running some functions, you can track and follow messages 
 
 On the left side of the status bar, you can get a long description of the widget (button, input entry, list box, combo box, ...) you are hovering over (not available for all widgets). In addition, when you hold your mouse over the widget, a short description of the widget’s purpose will be displayed.
 
-`r put.image("images/cdt_file/status_bar1.png", height = 300)`
+`r put.image("images/cdt_file/status_bar1.gif", height = 300)`
 
 When a map and graph are displayed, the right side of the status bar shows the current position of the mouse as a long/lat coordinate, following it while moving across the map view. Next to the coordinate display you will find the name of the polygon (region, district, ...) displayed if the map is from an ESRI shapefile.
 
-`r put.image("images/cdt_file/status_bar2.png", height = 300)`
+`r put.image("images/cdt_file/status_bar2.gif", height = 300)`

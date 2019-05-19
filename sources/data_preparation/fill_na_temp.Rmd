@@ -9,5 +9,5 @@ output:
 image dir /images/data_prepraration/format_cdt_data
 -->
 
-`r put.image("images/data_prepraration/format_cdt_data/fill_dek_temp.png", height = 50, width = 55)`
+`r put.image("images/data_prepraration/format_cdt_data/fill_dek_temp.gif", height = 50, width = 55)`
 
