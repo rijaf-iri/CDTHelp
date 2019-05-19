@@ -28,7 +28,7 @@ The menu `r menuselection('Data Preparation','Format CDTs Input Data')` opens a 
 3. Enter here the minimum percentage (related to the period you selected) of non-missing values from a station to be accepted for the final CDT station data output.
 4. Select the type of input files to be converted to CDT station format, two choices are available: [Multiple Files](#multiple.files) and [Single File](#single.file).
 5. Click on `r button('Input File Setting')` to set the parameters required for the input file.
-6. Enter the name of the file to save the formated stations data or the full path to the file. You can also click on ![][browsebutf], it opens a file dialog where you can select the name, path and type of file (txt or csv).
+6. Enter the name of the file to save the formatted stations data or the full path to the file. You can also click on ![][browsebutf], it opens a file dialog where you can select the name, path and type of file (txt or csv).
 
 
 ## Multiple Files `r anchor.point('multiple.files')`
@@ -155,7 +155,7 @@ This time, all station data are already put together in a single file with a spe
 
 `r put.image("images/data_prepraration/format_cdt_data/format_cdt_input_data2.gif", height = 45, width = 40)`
 
-1. Select the file containing the station data to be formated, if the file is not loaded yet and therefore not listed, use ![][browsebutf] to open it.
+1. Select the file containing the station data to be formatted, if the file is not loaded yet and therefore not listed, use ![][browsebutf] to open it.
 2. Check this box, if the coordinates of the station are included in the data.
 3. Select the file containing the station coordinates, if it is not included in the file containing the data. If the file is not loaded yet and therefore not listed, use ![][browsebutf] to open it.
 4. Check this box, if you want to include the elevation data to the final CDT station data output,  provided that the data file contains an elevation data or the elevation data is not missing on the coordinates file.

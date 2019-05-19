@@ -5,7 +5,7 @@ output:
     toc: false
 ---
 
-## Merge two CDT station data format files
+# Merge two CDT station data format files
 
 If you want to combine two CDT station data formats from two different files into one file, use `r menuselection('Data Preparation','Merge two CDT Station Data')`, it will display a dialog box.
 
