@@ -92,9 +92,15 @@ div.tocify {
 
 # [Quality Control](quality_control.html)
 
-## [Rainfall](quality_control.html)
+## [Rainfall data](quality_control.html)
 
-## [Temperatures](quality_control.html)
+### [False zero check](quality_control.html)
+
+### [Outliers check](quality_control.html)
+
+## [Temperatures data](quality_control.html)
+
+### [Outliers check](quality_control.html)
 
 # [Homogeneity Test](homogeneity_test.html)
 

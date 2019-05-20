@@ -8,9 +8,9 @@ output:
       collapsed: false
 ---
 
-CDT can handle hourly, daily, pentad (5-days), dekadal (10-days) or monthly series. A file can contains one station or several stations series. Each input stations data should be stored in a text/ASCII or CSV (Comma-separated values) format file.
-
 ## CDT stations data format `r anchor.point('cdt.format.data')`
+
+CDT can handle hourly, daily, pentad (5-days), dekadal (10-days) or monthly series. A file can contains one station or several stations series. Each input stations data should be stored in a text/ASCII or CSV (Comma-separated values) format file.
 
 All the series from different stations for one variable are put together on a single file. It is the standard input data format used by CDT, in which the first line is the ID or name of the stations (__*avoid putting space in stations name*__), the second  and third lines are longitude  and latitude of the stations, and the fourth line is elevation data in meter (if it exists), and the following lines contain the observations, and the first column is the date of observations. The following tables show the format of the data
 
