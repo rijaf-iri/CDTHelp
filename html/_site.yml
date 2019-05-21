@@ -15,11 +15,8 @@ navbar:
         - text: "Format CDTs Input Data"
           href: format_cdt_data.html
         - text: "---------"
-        - text: "Merge two CDT Station Data"
-          href: merge_2cdt_data.html
-        - text: "---------"
-        - text: "Filtering CDT Station Data"
-          href: filter_cdt_data.html
+        - text: "Manipulating CDT station data format"
+          href: manipulate_cdt_data.html
         - text: "---------"
         - text: "Transform NetCDF files into CDT Dataset"
           href: transform_cdt_dataset.html

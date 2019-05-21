@@ -1,5 +1,5 @@
 ---
-title: "Format CDT Input data"
+title: "Format CDT Input Station Data"
 output:
   html_document:
     toc: true
@@ -8,14 +8,14 @@ output:
       collapsed: false
 ---
 
-If you do not yet have a data in CDT station format to work with, you can format your data to [CDT station data format](cdt_data_input.html#cdt.format.data) using the menu `r menuselection('Data Preparation','Format CDTs Input Data')`. 
+If you do not yet have a data in CDT station format to work with, you can format your data to [CDT station data format](cdt_data_input.html#cdt.format.data) using the menu `r menuselection('Data Preparation','Format CDT Input Station Data')`. 
 
 CDT can format two types of input files:
 
 - the data is already grouped together in a single file but not yet in CDT station format
 - or each station has its data in a separate file
 
-The menu `r menuselection('Data Preparation','Format CDTs Input Data')` opens a dialog where you can enter the required input and select the options corresponding to your type of data.
+The menu `r menuselection('Data Preparation','Format CDT Input Station Data')` opens a dialog where you can enter the required input and select the options corresponding to your type of data.
 
 `r put.image("images/data_prepraration/format_cdt_data/format_cdt_input_data.gif", height = 60, width = 60)`
 

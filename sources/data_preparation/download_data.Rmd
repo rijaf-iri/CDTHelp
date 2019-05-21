@@ -8,23 +8,48 @@ output:
       collapsed: false
 ---
 
-<!--
-image dir /images/data_prepraration/download_data
--->
-
-
 ## Download DEM `r anchor.point('download.dem')`
 
+The menu `r menuselection('Data Preparation', 'Download DEM')` allows to download the elevation data from a global DEM (Digital Elevation Model) extracted at any wanted area with a spatial resolution of 1 and 2 arc-minute.
+
 `r put.image("images/data_prepraration/download_data/download_dem.gif", height = 40, width = 45)`
+
+1. Set the bounding box of the area to be downloaded. Type in the fields the minimum and maximum of the longitude and latitude in degree decimal.
+2. Specify the folder to save the downloaded DEM by browsing it from the button ![][browsebutf] or typing the full path to the folder.
+
+Two files in NetCDF format will be downloaded into the folder you specified in (__2__):
+- **DEM_1_Arc-Minute.nc**: [ETOPO1](http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NGDC/.ETOPO1/) Grid Registered 1 Arc-Minute Global Relief Model.
+- **DEM_2_Arc-Minute.nc**: [ETOPO2v2c](http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NGDC/.ETOPO2v2/) Global Gridded 2-minute elevation and bathymetric data.
 
 
 ## Download Country boundary `r anchor.point('download.shp')`
 
+The menu `r menuselection('Data Preparation', 'Download Country boundary')` allows to download the country outlines and administrative subdivisions for countries in Africa from [GADM data](https://gadm.org/index.html).
+
 `r put.image("images/data_prepraration/download_data/download_shp.gif", height = 40, width = 45)`
+
+1. Select the country from the drop-down list.
+2. Select the administrative subdivisions to download. __0__ is the country boundaries, __1__ is the first subdivision (example: Region), __2__ the second subdivision (example: District), ...
+3. Specify the folder to save the downloaded ESRI shapefile by browsing it from the button ![][browsebutf] or typing the full path to the folder.
 
 
 ## Download RFE `r anchor.point('download.rfe')`
 
+The menu `r menuselection('Data Preparation', 'Download RFE')` allows to download satellite rainfall products at daily and dekadal (10-days) temporal resolution.
+
 `r put.image("images/data_prepraration/download_data/download_rfe.gif", height = 50, width = 55)`
 
+1. Select the satellite rainfall estimate product to download. For dekadal rainfall, 4 choices are available: __10-DAYS TAMSATv3__ (*Africa*), __10-DAYS TAMSATv2__ (*Africa*), __10-DAYS CHIRPSv2.0__ (*Global*) and __10-DAYS CHIRPv1.0__ (*Global*); for daily rainfall, you have 3 choices: __DAILY TAMSATv3__ (*Africa*), __DAILY TAMSATv2__ (*Africa*) and __DAILY CHIRPSv2.0__ (*Global*).
+2. Set the date range to download. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+3. Set the bounding box of the area to be downloaded. Type in the fields the minimum and maximum of the longitude and latitude in degree decimal.
+4. Specify the folder to save the downloaded rainfall data by browsing it from the button ![][browsebutf] or typing the full path to the folder.
+
+A folder containing the downloaded rainfall extracted over the area you specified in (__3__) will be created under the directory you provided in (__4__).
+- **Dekadal_TAMSATv3_Extracted**: dekadal rainfall from IRIDL [TAMSATv3](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v3p0/)
+- **Dekadal_TAMSATv2_Extracted**: dekadal rainfall from IRIDL [TAMSATv2](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v2p0/)
+- **Dekadal_CHIRPSv2.0_Extracted**: dekadal rainfall from IRIDL [CHIRPSv2.0](http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/)
+- **Dekadal_CHIRPv1.0_Extracted**: dekadal rainfall from IRIDL [CHIRPv1.0](http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRP/.v1p0/)
+- **Daily_TAMSATv3_Extracted**: daily rainfall from IRIDL [TAMSATv3](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v3p0/)
+- **Daily_TAMSATv2_Extracted**: daily rainfall from IRIDL [TAMSATv2](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v2p0/)
+- **Daily_CHIRPSv2.0_Extracted**: daily rainfall from IRIDL [CHIRPSv2.0](http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.daily-improved/)
 

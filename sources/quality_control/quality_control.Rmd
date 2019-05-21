@@ -11,7 +11,7 @@ output:
 
 ## Rainfall data
 
-### False zero check
+### False zero check `r anchor.point('false.zero.check')`
 
 A false zero is an incorrect report of zero precipitation during the rainy season. The false zeros mainly come from the conversion of file with a given format to another file format, in most cases, the missing values from the original file format are not flagged and left blank, when converting the file to the other format the missing values are replaced by zeros. To check the false zeros, the percentage of zero values for each month at the target station is computed and compared to the average of the percentage of zero values for the corresponding month of the neighbor stations. If this percentage is greater than a given threshold, this month is flagged as a month containing false zeros.
 
@@ -96,7 +96,7 @@ CDT:::FalseZerosCheck_replaceAll(indexFZ, action = "all")
 Change <__path_to__>  with the exact path. The corrected data are located under the folder __FALSE.ZEROS.CHECK_data/CDTSTATIONS__.  
 <br>
 
-### Outliers check
+### Outliers check `r anchor.point('rr.outlier.check')`
 
 To check the outliers for rainfall data, use the menu `r menuselection('Quality Control','QC station data', 'Rainfall', 'Outliers Check')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters.
 
@@ -288,7 +288,7 @@ The tab `r onglet('Add Layers')` allows to superpose other layers.
 
 ## Temperatures data
 
-### Outliers check
+### Outliers check `r anchor.point('tt.outlier.check')`
 
 To check the outliers for temperatures data, use the menu `r menuselection('Quality Control','QC station data', 'Temperatures')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters.
 

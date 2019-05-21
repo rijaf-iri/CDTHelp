@@ -1,4 +1,5 @@
 ---
+title: "CDT User Guide"
 output:
  html_document:
   toc: true
@@ -52,15 +53,19 @@ div.tocify {
 
 ## [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting)
 
-# [Format CDT Input data](format_cdt_data.html)
+# [Format CDT Input Station Data](format_cdt_data.html)
 
 ## [Multiple Files](format_cdt_data.html#multiple.files)
 
 ## [Single File](format_cdt_data.html#single.file)
 
-# [Merge two CDT Stations Data](merge_2cdt_data.html)
+# [Manipulating CDT station data format](manipulate_cdt_data.html)
 
-# [Filtering CDT Station Data](filter_cdt_data.html)
+## [Merge two CDT station data format files](manipulate_cdt_data.html#merge.cdtdata)
+
+## [Filtering CDT station data format](manipulate_cdt_data.html#filter.cdtdata)
+
+## [Selecting CDT station data format](manipulate_cdt_data.html#select.cdtdata)
 
 # [Transform NetCDF files into CDT Dataset](transform_cdt_dataset.html)
 
@@ -94,13 +99,13 @@ div.tocify {
 
 ## [Rainfall data](quality_control.html)
 
-### [False zero check](quality_control.html)
+### [False zero check](quality_control.html#false.zero.check)
 
-### [Outliers check](quality_control.html)
+### [Outliers check](quality_control.html#rr.outlier.check)
 
 ## [Temperatures data](quality_control.html)
 
-### [Outliers check](quality_control.html)
+### [Outliers check](quality_control.html#tt.outlier.check)
 
 # [Homogeneity Test](homogeneity_test.html)
 
@@ -143,6 +148,3 @@ div.tocify {
 # [Plot multiple data sets](plot_multiple_dataset.html)
 
 </div>
-
-```{r, child = '_generated_date.Rmd'}
-```
