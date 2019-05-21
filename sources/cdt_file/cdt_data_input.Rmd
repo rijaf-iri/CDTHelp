@@ -146,3 +146,33 @@ So that CDT can correctly read all NetCDF files, you have to provide a sample fr
 
 1. Provide a sample from the NetCDF files. If the file is already opened in the [Open Files](cdt_file_menu.html#open.files) list box, select it in the drop down list, if not, browse with the button ![][browsebutf] in the right to open it.
 2. Specify the [NetCDF filename format](#cdt.ncdf.ffrmt)
+
+## CDT dataset format `r anchor.point('cdt.dataset')`
+
+Since CDT can only handle a NetCDF data with a separate file for each time step, it will be difficult to deal with a time series. For example, let's suppose that you want to compute the dekadal climatology for a specific pixel or a spatially averaged over a small area, you have to read each NetCDF file and extract the pixels for the period that you defined, it can be a time-consuming process. 
+
+To remedy this inconvenience, the area needs to be divided into pieces or chunks. Each chunk contains approximately 100 pixels.
+
+`r put.image("images/cdt_file/cdt_dataset.gif", height = 60, width = 60)`
+
+The time series from each chunk is saved in separate file and the filenames correspond to the number of each chunk. When you need to extract one pixel from the dataset, you do not need to open each NetCDF file to get this pixel, only the file containing this pixel will be loaded. Similarly, if you want to get the time series spatially averaged over a small area, only the corresponding files containing these pixels will be loaded.
+
+The files containing the time series from the chunk are stored in folder named **DATA** and an index file is created. The index file contains the information about the data (date, coordinates, ...). For example, if the name of the CDT dataset is **PRECIP**, the directory tree structure of this CDT dataset would be as follows 
+
+```
+PRECIP
+├── DATA
+│   ├── 1.rds
+│   ├── 2.rds
+│   ├── 3.rds
+│   ├── 4.rds
+│   ├── ...
+│   ├── 41.rds
+│   └── 42.rds
+│
+└── PRECIP.rds
+```
+
+**DATA** folder contains the chunk files, and *1.rds*, *2.rds*, ..., *42.rds* are the file containing the time series for each chunk.
+**PRECIP.rds** is the index file.  
+

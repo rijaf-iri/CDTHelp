@@ -53,6 +53,8 @@ div.tocify {
 
 ## [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting)
 
+## [CDT dataset format](cdt_data_input.html#cdt.dataset)
+
 # [Format CDT Input Station Data](format_cdt_data.html)
 
 ## [Multiple Files](format_cdt_data.html#multiple.files)

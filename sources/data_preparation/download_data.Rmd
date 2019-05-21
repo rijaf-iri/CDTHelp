@@ -40,7 +40,7 @@ The menu `r menuselection('Data Preparation', 'Download RFE')` allows to downloa
 `r put.image("images/data_prepraration/download_data/download_rfe.gif", height = 50, width = 55)`
 
 1. Select the satellite rainfall estimate product to download. For dekadal rainfall, 4 choices are available: __10-DAYS TAMSATv3__ (*Africa*), __10-DAYS TAMSATv2__ (*Africa*), __10-DAYS CHIRPSv2.0__ (*Global*) and __10-DAYS CHIRPv1.0__ (*Global*); for daily rainfall, you have 3 choices: __DAILY TAMSATv3__ (*Africa*), __DAILY TAMSATv2__ (*Africa*) and __DAILY CHIRPSv2.0__ (*Global*).
-2. Set the date range to download. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+2. Set the date range of the data to download. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
 3. Set the bounding box of the area to be downloaded. Type in the fields the minimum and maximum of the longitude and latitude in degree decimal.
 4. Specify the folder to save the downloaded rainfall data by browsing it from the button ![][browsebutf] or typing the full path to the folder.
 

@@ -5,8 +5,34 @@ output:
     toc: false
 ---
 
-<!--
-image dir /images/data_prepraration/format_cdt_data
--->
+The menu `r menuselection('Data Preparation', 'Transform NetCDF files into CDT Dataset')` allows to transform a NetCDF dataset into CDT gridded dataset format. See [CDT dataset format](cdt_data_input.html#cdt.dataset) for more details.
 
 `r put.image("images/data_prepraration/format_cdt_data/cdt_datasets.gif", height = 60, width = 55)`
+
+1. Select the time step of the NetCDF data.
+2. Set the date range of the data to be converted. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+3. Type the full path to the folder containing the NetCDF files or browse it from the button ![][browsebutf] on the left.
+4. Provide a sample and change the filename format of the NetCDF file by clicking on the button `r button('Settings')` (see [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting) for more details).
+5. If you already have a CDT dataset format and you want to add a new data, check this box.
+6. If the box in (__5__) is cheked, type here the full path to the index file of the CDT dataset or browse it from the button ![][browsebutf] on the left.
+7. Type the full path to the folder to save the CDT dataset, or use the browse button ![][browsebutf].
+8. Specify the name of the dataset.
+
+Click on the button ![][executetask] to execute. 
+
+A folder with the name of the CDT dataset (__8__) is created under the folder you provided (__7__). If the name of the CDT dataset is **PRECIP**, the directory tree structure of this CDT dataset would be as follows 
+
+```
+PRECIP
+├── DATA
+│   ├── 1.rds
+│   ├── 2.rds
+│   ├── 3.rds
+│   ├── 4.rds
+│   └── ...
+│
+└── PRECIP.rds
+```
+
+**PRECIP.rds** is the index file.  
+
