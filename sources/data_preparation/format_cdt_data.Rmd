@@ -28,8 +28,7 @@ The menu `r menuselection('Data Preparation','Format CDT Input Station Data')` o
 3. Enter here the minimum percentage (related to the period you selected) of non-missing values from a station to be accepted for the final CDT station data output.
 4. Select the type of input files to be converted to CDT station format, two choices are available: [Multiple Files](#multiple.files) and [Single File](#single.file).
 5. Click on `r button('Input File Setting')` to set the parameters required for the input file.
-6. Enter the name of the file to save the formatted stations data or the full path to the file. You can also click on ![][browsebutf], it opens a file dialog where you can select the name, path and type of file (txt or csv).
-
+6. Type the name of the file to save the formatted stations data or the full path to the file. You can also click on ![][browsebutf] on the left, it opens a file dialog where you can select and/or type the name, path and type of file (txt or csv).
 
 ## Multiple Files `r anchor.point('multiple.files')`
 

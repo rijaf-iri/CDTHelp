@@ -5,9 +5,16 @@ output:
     toc: false
 ---
 
-<!--
-image dir /images/data_prepraration/format_cdt_data
--->
+The menu `r menuselection('Data Preparation', 'Filling missing dekadal temperature values')` allows to fill out the missing values of dekadal temperature data in CDT station data format with an adjusted reanalysis dekadal temperature data by a regression.
+
+The reanalysis data are extracted at the station locations, then a regression between the station and the extracted adjusted reanalysis is performed by using the series of dekad corresponding to the missing dekad to be filled out. The length of the series is limited to 21 dekads centered at the missing dekad.
 
 `r put.image("images/data_prepraration/format_cdt_data/fill_dek_temp.gif", height = 50, width = 55)`
 
+1. Select from the drop-down list the file (in CDT station data format) containing the dekadal temperature data to be filled if it is already loaded, or open it from the browse button ![][browsebutf] on the left.
+2. Type the full path to the folder containing the adjusted reanalysis files (in NetCDF format) or browse it from the button ![][browsebutf] on the left. Do not forget to provide a sample file and change the filename format of the NetCDF file by clicking on the button `r button('Settings')` (see [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting) for more details).
+3. Minimum length (between 10 and 20) of non missing data \n to be used to perform the regression.
+4. Set the date range of the data to be filled. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+5. Type the name of the file to save the filled data or the full path to the file. You can also click on ![][browsebutf] on the left, it opens a file dialog where you can select and/or type the name, the path and the file format (txt or csv).
+
+Click on the button ![][executetask] to execute. 

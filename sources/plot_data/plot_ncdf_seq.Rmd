@@ -1,0 +1,11 @@
+---
+title: "Plot NetCDF Data (Sequential Files)"
+output:
+  html_document:
+    toc: false
+---
+
+<!--
+image dir /images/plot_data/plot_ncdf_seq
+-->
+

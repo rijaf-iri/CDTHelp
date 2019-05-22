@@ -145,7 +145,11 @@ div.tocify {
 
 # [Plot CDT Gridded Dataset](plot_cdt_dataset.html)
 
-# [Plot NetCDF Data](plot_ncdf.html)
+# [Plot NetCDF Data (One File)](plot_ncdf_one.html)
+
+# [Plot NetCDF Data (Sequential Files)](plot_ncdf_seq.html)
+
+# [Plot NetCDF Data (Multiple Variables)](plot_ncdf_vars.html)
 
 # [Plot multiple data sets](plot_multiple_dataset.html)
 

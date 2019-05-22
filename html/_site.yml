@@ -103,8 +103,14 @@ navbar:
         - text: "Plot CDT Gridded Dataset"
           href: plot_cdt_dataset.html
         - text: "---------"
-        - text: "Plot NetCDF Data"
-          href: plot_ncdf.html
+        - text: "Plot NetCDF Data (One File)"
+          href: plot_ncdf_one.html
+        - text: "---------"
+        - text: "Plot NetCDF Data (Sequential Files)"
+          href: plot_ncdf_seq.html
+        - text: "---------"
+        - text: "Plot NetCDF Data (Multiple Variables)"
+          href: plot_ncdf_vars.html
         - text: "---------"
         - text: "Plot multiple data sets"
           href: plot_multiple_dataset.html

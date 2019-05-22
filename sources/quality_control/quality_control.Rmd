@@ -104,7 +104,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 
 `r put.image("images/quality_control/quality_control/qc-rr_tab-data.gif", height = 50, width = 50)`
 
-1. Select the time step of the station data to be checked
+1. Select the time step of the station data to be checked.
 2. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the left.
 3. If you want to use elevation data to select the neighbor stations, check this box and click on the button `r button('Settings')`, it will display a dialog box which allows to specify the elevation data to be used.
 

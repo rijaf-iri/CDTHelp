@@ -10,7 +10,7 @@ output:
 
 ## Merge two CDT station data format files `r anchor.point('merge.cdtdata')`
 
-If you want to combine two CDT station data formats from two different files into one file, use `r menuselection('Data Preparation', 'Manipulating CDT Station Data', 'Merge two CDT Station Data')`, it will display a dialog box.
+If you want to combine CDT station data format from two different files into one file, use `r menuselection('Data Preparation', 'Manipulating CDT Station Data', 'Merge two CDT Station Data')`, it will display a dialog box.
 
 `r put.image("images/data_prepraration/merge_filter_cdt_data/merge2_cdt_data.gif", height = 50, width = 55)`
 
