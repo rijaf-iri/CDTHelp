@@ -16,7 +16,7 @@ If you want to convert CDT station data format or a NetCDF dataset into CPT stat
 
 1. Select the input data format to convert.  Available data formats are: [**CDT stations data format**](cdt_data_input.html#cdt.format.data), [**NetCDF gridded data**](cdt_data_input.html#cdt.ncdf.data).
 
-2. If the input data is a *CDT station data format*, select from the drop-down list the file  containing the dekadal temperature data to be converted if it is already loaded, or open it from the browse button ![][browsebutf] on the left. In case of *NetCDF gridded data*, type the full path to the folder containing the NetCDF files or browse it from the button ![][browsebutf] on the left. Then click on the button `r button('Settings')`. A dialog box will be displayed in which you can provide a sample file and change the filename format of the NetCDF file.
+2. If the input data is a *CDT station data format*, select from the drop-down list the file containing the station data to be converted if it is already loaded, or open it from the browse button ![][browsebutf] on the right. In case of *NetCDF gridded data*, type the full path to the folder containing the NetCDF files or browse it from the button ![][browsebutf] on the right. Then click on the button `r button('Settings')`. A dialog box will be displayed in which you can provide a sample file and change the filename format of the NetCDF file.
 
 `r put.image("images/data_prepraration/data_conversion/set_ncdf1.gif", height = 35, width = 40)`
 
@@ -29,21 +29,21 @@ If you want to convert CDT station data format or a NetCDF dataset into CPT stat
 	- **Pentad**: *%P*
 	- **Day**: *%D*
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 <div style="display: inline-block; float: right; width: 90%">
 **Example**: 
 If you have a NetCDF dataset with the file name **outTS_2017-12_2018-02.nc**, the format should be like this **outTS_%Y-%M_%Y-%M.nc**. 
 If the file name is **onset_20181201.nc**, the format should be like this **onset_%Y%M%D.nc**.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 3. Specify the CPT tags.
 	- **Field Name**: the CPT tag *cpt:field* representing the abbreviated name of the field variable. 
 	- **Field Units**: the CPT tag *cpt:units* for the units in which the data are stored.
 	- **Missing Value**: the CPT tag *cpt:missing* for the missing value code.
 
-4. Type the name of the file to save the converted data or the full path to the file. You can also click on ![][browsebutf] on the left, it opens a file dialog where you can select and/or type the name, the path and the file extension.
+4. Type the name of the file to save the converted data or the full path to the file. You can also click on ![][browsebutf] on the right, it opens a file dialog where you can select and/or type the name, the path and the file extension.
 
 Click on the button ![][executetask] to start the conversion. 
 
@@ -54,7 +54,7 @@ The menu `r menuselection('Data Preparation', 'Data Format Conversion', 'Convert
 `r put.image("images/data_prepraration/data_conversion/convert_raster.gif", height = 50, width = 55)`
 
 1. Select the format of the data to convert and the format in which the data will be converted.
-2. Type the full path to the folder containing the files to convert or browse it from the button ![][browsebutf] on the left.
+2. Type the full path to the folder containing the files to convert or browse it from the button ![][browsebutf] on the right.
 3. Type the full path to the folder to save the converted files or browse it using the button ![][browsebutf].
 4. If the output files are in NetCDF format, all these fields will be activated allow you to define the NetCDF variable. Take a look at the function `ncvar_def` of the `R` package `ncdf4` for more details.
 
@@ -68,7 +68,7 @@ As CDT can only handle a NetCDF data with a separate file for each time step, yo
 
 1. Select the time step of the NetCDF data.
 2. Set the date range you want to include to the data descriptor file. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
-3. Type the full path to the folder containing the NetCDF files or browse it from the button ![][browsebutf] on the left. Then click on the button `r button('Settings')`. A dialog box will be displayed in which you can provide a sample file and change the filename format of the NetCDF file.
+3. Type the full path to the folder containing the NetCDF files or browse it from the button ![][browsebutf] on the right. Then click on the button `r button('Settings')`. A dialog box will be displayed in which you can provide a sample file and change the filename format of the NetCDF file.
 
 `r put.image("images/data_prepraration/data_conversion/set_ncdf2.gif", height = 35, width = 40)`
 
@@ -79,17 +79,15 @@ As CDT can only handle a NetCDF data with a separate file for each time step, yo
 	- **Month**: *%M*
 	- **Day**: *%D*
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 <div style="display: inline-block; float: right; width: 90%">
 **Example**: 
 If you have a NetCDF dataset with the file name **rr_mrg_20180121_ALL.nc**, the format should be like this **rr_mrg_%Y%M%D_ALL.nc**. 
 If the file name is **rfe_201801.nc**, the format should be like this **rfe_%Y%M.nc**.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
-4. Type the name of the file to save the data descriptor file or the full path to the file. You can also click on ![][browsebutf] on the left, it opens a file dialog where you can select and/or type the name, the path and the file extension.
+4. Type the name of the file to save the data descriptor file or the full path to the file. You can also click on ![][browsebutf] on the right, it opens a file dialog where you can select and/or type the name, the path and the file extension.
 
 Click on the button ![][executetask] to create the data descriptor file. 
-
-

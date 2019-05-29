@@ -5,10 +5,23 @@ output:
     toc: false
 ---
 
-<!--
-image dir /images/data_prepraration/aggregate_data
--->
+The menu `r menuselection('Aggregate Data', 'Aggregate/Disaggregate Spatial NetCDF data')` allows to perform a spatial aggregation and disaggregation, in other words, regridding. Regridding is the process of interpolating from one grid resolution to a different grid resolution.
 
 `r put.image("images/data_prepraration/aggregate_data/aggregate_SP.gif", height = 60, width = 65)`
 
+1. Select the number of files to regrid. Valid options: *One NetCDF file* or *Multiple NetCDF files*.
+2. If you want to regrid one NetCDF file, select the file from the drop-down list if it is already loaded or  open it from the button ![][browsebutf] in the right. In case of multiple NetCDF files, type the full path to the folder containing the NetCDF files or browse it.
+3. In case of multiple NetCDF files, provide a NetCDF sample file.
+4. The bounding box and the resolution of the data will be displayed in this area.
+5. Check this box if the grid points to be used for the regridding are from other NetCDF file.
+6. Provide the NetCDF file whose grid will be used to regrid the data.
+7. Select the regridding to use. Valid options:
+	- **Aggregate**: regrid data from high resolution into coarse resolution.
+	- **Disaggregate**: regrid data from coarse resolution into high resolution. **_Spatial disaggregation should be used and interpreted with the utmost caution_**. No additional information other than what is already contained in the original data is obtained. 
+8. In case of aggregation, if you set yourself the new grid, two interpolation methods are available: **mean** and **bilinear** interpolation. The *mean* method consist in averaging the values from the old grid points which are included in the new grid point. This method is usually used to aggregate elevation data from a high resolution Digital Elevation Model. If you use a grid points from other NetCDF file, the *bilinear* method only is available. For disaggregation, only the *bilinear* method is available.
+9. If a grid from other NetCDF data is not used to regrid, (**5** is not checked), specify here the bounding box and the resolution of the new grid.
+10. Type the full path to the folder to save the regridded data or browse it.
 
+Click on the button ![][executetask] to regrid the data.
+
+The regridded data are saved in a new folder named **Regrided_NetCDF** under the folder you provided to save the output in (**10**).

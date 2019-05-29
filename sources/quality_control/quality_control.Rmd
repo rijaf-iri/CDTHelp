@@ -21,7 +21,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 
 `r put.image("images/quality_control/quality_control/False-zero_tab-data.gif", height = 50, width = 50)`
 
-1. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the left.
+1. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
 
 2. Click on this button to set the parameters to be used for the false-zeros check. It displays a dialog box 
 
@@ -34,7 +34,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 * (__d__) Specify the minimum number of days without missing values for each month.
 * (__e__) Specify the minimum threshold to be used to flag that a month contains a false zero. If the ratio of the percentage of zero at the target station and the average of the percentage of zero of the neighbor stations is greater than this threshold the corresponding month is flagged as suspicious.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 3. Specify the folder to save the results by browsing it from the button ![][browsebutf] or typing the full path to the folder.
 4. Click the button `r button('&nbsp;&nbsp;&nbsp; Check False-Zeros &nbsp;&nbsp;&nbsp;')` to execute.
@@ -49,7 +49,7 @@ The tab `r onglet('False-Zeros')` allows to view the results of the false zeros 
 
 `r put.image("images/quality_control/quality_control/False-zero_tab-fz.gif", height = 50, width = 50)`
 
-1. If you already performed a false zeros check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to __FalseZeros.rds__ under the folder __FALSE.ZEROS.CHECK_data__ by browsing it through the button ![][browsebutf] on the left.
+1. If you already performed a false zeros check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to __FalseZeros.rds__ under the folder __FALSE.ZEROS.CHECK_data__ by browsing it through the button ![][browsebutf] on the right.
 2. The stations with a month containing false zeros are listed here. You can select a station and click on the button `r button('&nbsp;&nbsp;&nbsp; View & Edit Result &nbsp;&nbsp;&nbsp;')` to view the results. You can use the buttons `r button('<<')` or `r button('>>')` to switch to the previous or next station. It will open a table on the right panel showing the output of the false zeros for the selected station.
 
 `r put.image("images/quality_control/quality_control/False-zero_view-edit.gif", height = 90, width = 90)`    
@@ -65,19 +65,19 @@ The tab `r onglet('False-Zeros')` allows to view the results of the false zeros 
 * (__h__) The ratio of (__c__) and (__f__).
 * (__i__) The ratio of (__c__) and the interpolated percentage of zero of the neighbor stations using the method of weighted inverse distance.  
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 <div style="display: inline-block; float: right; width: 95%">
 After verifying each month flagged as containing false zeros, if you find that the month does not have false zeros, you can remove it from the table by right-clicking on the column of row number corresponding to this month then from the pop menu click on `r menuselection('Delete selected row')`.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 `r put.image("images/quality_control/quality_control/False-zero_remove-line.gif", height = 100, width = 70)`   
 
 <div style="display: inline-block; float: right; width: 95%">
 After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.  
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 3. Select here the date corresponding to a month with false zeros to display the values of the rainfall data at the target station and the neighbor stations for this month. If you select the date from the drop-down list, click on the button `r button('DISPLAY')` to display the table. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next date.
 
@@ -105,7 +105,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 `r put.image("images/quality_control/quality_control/qc-rr_tab-data.gif", height = 50, width = 50)`
 
 1. Select the time step of the station data to be checked.
-2. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the left.
+2. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
 3. If you want to use elevation data to select the neighbor stations, check this box and click on the button `r button('Settings')`, it will display a dialog box which allows to specify the elevation data to be used.
 
 `r put.image("images/quality_control/quality_control/qc_elev-data.gif", height = 40, width = 40)`
@@ -113,7 +113,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 <div style="display: inline-block; float: right; width: 95%">
 If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__), you have to provide the DEM file in (__a2__) in NetCDF format, select it from the drop-down list if it is already loaded or open it from the browse button ![][browsebutf]. If the elevation data come from the station data select (__b__).
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 
 4. Click on this button to set the parameters to perform the outliers check.
@@ -129,7 +129,7 @@ If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__)
 - (__d__) If using elevation data to select the neighbor stations, specify the maximum altitude difference (in meter) to be used to select the neighbor stations. For example, 800 m means the stations located 400 m above and below the target station will be selected.
 - (__g__) and (__h__) provide the thresholds to check if the value at the target is an **isolated precipitation**
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 `r put.image("images/quality_control/quality_control/qc-rr_isp.gif", height = 23, width = 23)`
 
@@ -141,13 +141,14 @@ An observation is implausible and called **isolated precipitation** if this valu
 Where
 **_Pmax_**: maximum value of neighboring stations
 **_Pobs_**: value of target station
+**_ISPMAX_** and **_ISPOBS_**: values to be provided by the user, depend on the climatology of the region
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 <div style="display: inline-block; float: right; width: 95%">
 - (__i__), (__j__) and (__k__) provide the thresholds to check if the value at the target is an **isolated dryness**
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 `r put.image("images/quality_control/quality_control/qc-rr_isd.gif", height = 25, width = 25)`
 
@@ -160,37 +161,39 @@ Where
 **_Pmin_** : minimum value of neighboring stations 
 **_Pobs_** : value of target station
 **_P25_** : the first quartile of neighboring stations
+**_ISDMIN_**, **_ISDOBS_** and **_ISDQ1_**: values to be provided by the user, depend on the climatology of the region
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 <div style="display: inline-block; float: right; width: 95%">
-- (__l__) a multiplier factor to be provided (usually between 2 and 4, the default value is 2.8) to check the **too large deviation** values.
+- (__l__) interquartile range factor (**_IQRF_**): a multiplier factor to be provided by the user (usually between 2 and 4, the default value is 2.8) to check the **too large deviation** values.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 <div style="display: inline-block; float: right; width: 85%">
 To check the deviation of an observation from the values of the neighbor stations, the approach using the Z-score will be applied.
 
 If an observation is strongly deviate to the right-tail (**too large deviation above**) and stated as implausible if
 
-<center>**(_Pobs_ - _Q50_) / _IRQ_ > 2 . _IQRF_** and **_Pobs_ > _ISPBOS_**</center>
+<center>**(_Pobs_ - _Q50_) / _IQR_ > 2 . _IQRF_** and **_Pobs_ > _ISPBOS_**</center>
 
 Where
 **_Pobs_** : value of target station
 **_Q50_** : the median of neighboring stations
 **_IQR_** : the interquartile range of neighboring stations
+**_IQRF_**: value to be provided by the user
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 `r put.image("images/quality_control/quality_control/qc-rr_tlga.gif", height = 25, width = 25)`
 
 <div style="display: inline-block; float: right; width: 85%">
 If an observation is strongly deviate to the left-tail (**too large deviation below**) and stated as implausible if
 
-<center>**(_Pobs_ - _Q50_) / _IRQ_ < -_IQRF_** and **_Pobs_ ≤ _ISPBOS_**</center>
+<center>**(_Pobs_ - _Q50_) / _IQR_ < -_IQRF_** and **_Pobs_ ≤ _ISDOBS_**</center>
 
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 `r put.image("images/quality_control/quality_control/qc-rr_tlgb.gif", height = 25, width = 25)`
 
@@ -207,7 +210,7 @@ The tab `r onglet('QC Outputs')` allows to view the results of the QC
 
 `r put.image("images/quality_control/quality_control/qc_tab-output.gif", height = 50, width = 50)`
 
-1. If you already performed an outliers check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **OutliersCheck.rds** under the folder **RR.OUTLIERS.CHECK_data** by browsing it through the button ![][browsebutf] on the left.
+1. If you already performed an outliers check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **OutliersCheck.rds** under the folder **RR.OUTLIERS.CHECK_data** by browsing it through the button ![][browsebutf] on the right.
 2. The stations with suspicious values are listed here. You can select a station and click on the button `r button('&nbsp;&nbsp;&nbsp; View & Edit Result &nbsp;&nbsp;&nbsp;')` to view  and edit the result of the QC for this station. You can use the buttons `r button('<<')` or `r button('>>')` to switch to the previous or next station. It will open a table on the right panel showing the output of the QC for the selected station.
 
 `r put.image("images/quality_control/quality_control/qc-rr_table-out.gif", height = 80, width = 80)`
@@ -233,7 +236,7 @@ The tab `r onglet('QC Outputs')` allows to view the results of the QC
 
 After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 3. Select here the month to display a chart of the time series for this month and the suspicious values detected from the temporal check. If you select the month from the drop-down list, click on the button `r button('PLOT')` to display the chart. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next month.
 
@@ -299,7 +302,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 
 1. Select the time step of the station data to be checked.
 2. Choose the variable to be checked between the maximum and minimum temperature.
-3. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the left.
+3. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
     - If TMAX is selected in (__2__), this should be the file containing the maximum temperature.
     - If TMIN is selected in (__2__), this should be the file containing the minimum temperature.
 4. Select from the drop-down list the file containing the station data to be used to check if the minimum temperature is greater than the maximum.
@@ -312,7 +315,7 @@ The tab `r onglet('Data')` allows to enter the inputs data and set the parameter
 <div style="display: inline-block; float: right; width: 95%">
 If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__), you have to provide the DEM file in (__a2__) in NetCDF format, select it from the drop-down list if it is already loaded or open it from the browse button ![][browsebutf]. If the elevation data come from the station data select (__b__).
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 6. Click on this button to set the parameters to perform the outliers check
 
@@ -328,7 +331,7 @@ If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__)
 - (__g__) Specify the radius of search (in kilometers) to select the neighbor stations.
 - (__h__) If using elevation data to select the neighbor stations, specify the maximum altitude difference (in meter) to be used to select the neighbor stations. For example, 800 m means the stations located 400 m above and below the target station will be selected.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 7. Type the full path to the folder to save the results of the outliers check, or use the browse button ![][browsebutf].
 8. Click the button `r button('Check Outliers')` to run the quality control.
@@ -344,7 +347,7 @@ The tab `r onglet('QC Outputs')` allows to view the results of the QC.
 
 `r put.image("images/quality_control/quality_control/qc_tab-output.gif", height = 50, width = 50)`
 
-1. If you already performed an outliers check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **OutliersCheck.rds** under the folder **TMAX.OUTLIERS.CHECK_data** or **TMIN.OUTLIERS.CHECK_data** by browsing it through the button ![][browsebutf] on the left.
+1. If you already performed an outliers check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **OutliersCheck.rds** under the folder **TMAX.OUTLIERS.CHECK_data** or **TMIN.OUTLIERS.CHECK_data** by browsing it through the button ![][browsebutf] on the right.
 2. The stations with suspicious values are listed here. You can select a station and click on the button `r button('&nbsp;&nbsp;&nbsp; View & Edit Result &nbsp;&nbsp;&nbsp;')` to view  and edit the result of the QC for this station. You can use the buttons `r button('<<')` or `r button('>>')` to switch to the previous or next station. It will open a table on the right panel showing the output of the QC for the selected station.
 
 `r put.image("images/quality_control/quality_control/qc-tt_table-out.gif", height = 80, width = 80)`
@@ -371,7 +374,7 @@ The tab `r onglet('QC Outputs')` allows to view the results of the QC.
 
 After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.
 </div>  
-<div style="clear: both;"></div>
+<div style="clear: right;"></div>
 
 3. Select here the month to display a chart of the time series for this month and the suspicious values detected from the temporal check. If you select the month from the drop-down list, click on the button `r button('PLOT')` to display the chart. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next month.
 
