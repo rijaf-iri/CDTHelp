@@ -1,0 +1,140 @@
+---
+title: "Outliers Check for temperatures data"
+output:
+  html_document:
+    toc: false
+---
+
+To check the outliers for temperatures data, use the menu `r menuselection('Quality Control','QC station data', 'Temperatures')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters.
+
+The tab `r onglet('Data')` allows to enter the inputs data and set the parameters for the QC.
+
+`r put.image("images/quality_control/quality_control/qc-tt_tab-data.gif", height = 50, width = 50)`
+
+
+1. Select the time step of the station data to be checked.
+2. Choose the variable to be checked between the maximum and minimum temperature.
+3. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+    - If TMAX is selected in (__2__), this should be the file containing the maximum temperature.
+    - If TMIN is selected in (__2__), this should be the file containing the minimum temperature.
+4. Select from the drop-down list the file containing the station data to be used to check if the minimum temperature is greater than the maximum.
+    - If TMAX is selected in (__2__), this should be the file containing the minimum temperature.
+    - If TMIN is selected in (__2__), this should be the file containing the maximum temperature.
+5. If you want to use elevation data to select the neighbor stations, check this box and click on the button `r button('Settings')`, it will display a dialog box which allows to specify the elevation data to be used.
+
+`r put.image("images/quality_control/quality_control/qc_elev-data.gif", height = 40, width = 40)`
+
+<div style="display: inline-block; float: right; width: 95%">
+If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__), you have to provide the DEM file in (__a2__) in NetCDF format, select it from the drop-down list if it is already loaded or open it from the browse button ![][browsebutf]. If the elevation data come from the station data select (__b__).
+</div>  
+<div style="clear: right;"></div>
+
+6. Click on this button to set the parameters to perform the outliers check
+
+`r put.image("images/quality_control/quality_control/qc-tt_outliers-pars.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__a__) Specify the minimum possible value of the temperature. It depends on the time step of the input data and the region or country.
+- (__b__) Specify the maximum possible value of the temperature.
+- (__c__) Length of the time window to be used to perform a sliding regression. The unit is days if the input is a daily data.
+- (__d__) Set the confidence level for the test.
+- (__e__) Specify the minimum number of neighbor stations to be used to form the predictors for the regression.
+- (__d__) Specify the maximum number of neighbor stations to be used to form the predictors for the regression.
+- (__g__) Specify the radius of search (in kilometers) to select the neighbor stations.
+- (__h__) If using elevation data to select the neighbor stations, specify the maximum altitude difference (in meter) to be used to select the neighbor stations. For example, 800 m means the stations located 400 m above and below the target station will be selected.
+</div>  
+<div style="clear: right;"></div>
+
+7. Type the full path to the folder to save the results of the outliers check, or use the browse button ![][browsebutf].
+8. Click the button `r button('Check Outliers')` to run the quality control.
+
+
+This creates a folder named __TMAX.OUTLIERS.CHECK_data__ or __TMIN.OUTLIERS.CHECK_data__ under the folder you provided (__7__) to save the results of the outliers check. Inside this folder 2 directories and 1 file are created:
+- **CDTDATASET**: directory containing all the required files used by CDT
+- **CDTSTATIONS**: directory containing the checked data, when you did a correction on the suspicious values. The name of the file containing the corrected data is the same as the name of the file from the input (__3__).
+- **OutliersCheck.rds**: an index file, you will need to reload the outputs of QC if you want to view the results or to continue the correction of suspicious values later.
+
+
+The tab `r onglet('QC Outputs')` allows to view the results of the QC.
+
+`r put.image("images/quality_control/quality_control/qc_tab-output.gif", height = 50, width = 50)`
+
+1. If you already performed an outliers check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **OutliersCheck.rds** under the folder **TMAX.OUTLIERS.CHECK_data** or **TMIN.OUTLIERS.CHECK_data** by browsing it through the button ![][browsebutf] on the right.
+2. The stations with suspicious values are listed here. You can select a station and click on the button `r button('&nbsp;&nbsp;&nbsp; View & Edit Result &nbsp;&nbsp;&nbsp;')` to view  and edit the result of the QC for this station. You can use the buttons `r button('<<')` or `r button('>>')` to switch to the previous or next station. It will open a table on the right panel showing the output of the QC for the selected station.
+
+`r put.image("images/quality_control/quality_control/qc-tt_table-out.gif", height = 80, width = 80)`
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__a__) The ID of the station.
+- (__b__) The dates on which suspicious values are found.
+- (__c__) The observed suspicious values.
+- (__d__) Statistics from the temporal check if available.
+- (__e__) Statistics from the spatial check if available.
+- (__f__) Description of the suspicious value from temporal check. 
+    - *lower.values*: the value is flagged as too small compared to the time series from this month;
+    - *upper.outliers*: the value is flagged as too large compared to the time series from this month;
+    - *TMIN >= TMAX*: the minimum temperature is greater than the maximum temperature;
+    - *greater.than.maximum.values*: the value is greater than the maximum possible value you provided when you set the parameters of the QC;
+    - *less.than.minimum.values*: the value is less than the minimum possible value specified.
+- (__g__) Description of the suspicious value from spatial check.
+    - *spatial.not.outliers*: the value is flagged as outlier from the temporal check but not an outlier when a spatial check is performed;
+    - *upper.outliers*: the value is flagged very high compared to the values of the neighbor stations;
+    - *lower.outliers*: the value is flagged very small compared to the values of the neighbor stations.
+- (__h__) The estimated value from the regression.
+- (__i__) You can specify here an action to take when you want to correct the suspicious value. By default, the value in this column is **1**, this means no correction will be done. If you put a flag **1** in this column, the corresponding value in column (__c__) will be kept. If you put a flag **2**, the corresponding value in column (__c__) will be replaced by the estimated value in column (__h__). If you leave this column blank, the corresponding value in (__c__) will be replaced by missing value.
+- (__j__) If you put a value in this column, this value will be taken to replace the value in (__c__). This column takes the priority, whenever you put a flag **1**, **2** or leave blank the column (__i__).
+
+After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.
+</div>  
+<div style="clear: right;"></div>
+
+3. Select here the month to display a chart of the time series for this month and the suspicious values detected from the temporal check. If you select the month from the drop-down list, click on the button `r button('PLOT')` to display the chart. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next month.
+
+`r put.image("images/quality_control/quality_control/qc-tt_graph.gif", height = 80, width = 80)`   
+
+4. Select here the date corresponding to a suspicious value to plot it on a map for this date. If you select the date from the drop-down list, click on the button `r button('PLOT')` to display the map. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next date.
+
+`r put.image("images/quality_control/quality_control/qc-tt_map.gif", height = 60, width = 60)`   
+
+5. After saving the changes you made on the table, click on the button `r button('&nbsp;&nbsp;&nbsp; Replace Outliers &nbsp;&nbsp;&nbsp;')` for the changes to take effect.
+
+<br>
+
+To replace all the values flagged as suspicious for all stations by missing values, use the following command to the `R` console:
+
+```r
+indexQC <- "/<path_to>/TMAX.OUTLIERS.CHECK_data/OutliersCheck.rds"
+CDT:::QC.TT_replaceAll(indexQC, action = "all")
+```
+
+Change <__path_to__> with exact path. The corrected data are located under the folder __TMAX.OUTLIERS.CHECK_data/CDTSTATIONS__.
+
+You can do the same for the minimum temperature by replacing **TMAX** by **TMIN**.
+
+<br>
+
+The tab `r onglet('Zoom')` allows to zoom the displayed map.
+
+`r put.image("images/quality_control/quality_control/qc_tab-zoom.gif", height = 50, width = 50)`   
+
+1. Enter here the bounding box of the area to be displayed on the map.
+2. After setting the bounding box (1), click this button for the change to take effect.
+3. Reset the zoom.
+4. Zoom in
+5. Zoom out
+6. Draw a rectangle on the map to zoom in an area.
+7. Move the displayed map.
+
+Right click on the map to deactivate the active zoom.
+
+<br>
+
+The tab `r onglet('Add Layers')` allows to superpose other layers.
+
+`r put.image("images/quality_control/quality_control/qc_tab-layer.gif", height = 50, width = 50)`   
+
+1. Check the box and select the shapefile from the drop-down list or open it from ![][browsebutf] to add boundaries to the active map.
+2. Check the box and select the NetCDF file containing the DEM (Digital Elevation Model) from the drop-down list or open it from ![][browsebutf] to add elevation data as background to the active map.
+3. Check the box and enter or browse the full path to the NetCDF data (from satellite or radar) to display. Do not forget to provide a sample file and change the filename format by clicking on the button `r button('Settings')` (see [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting) for more details).
+4. Select the type of the map. You can choose between a pixel-based image or a contour map.
+

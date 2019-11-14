@@ -1,0 +1,10 @@
+---
+title: "Split NetCDF files into CDT NetCDF format"
+output:
+  html_document:
+    toc: true
+---
+
+<!--
+image dir /images/data_prepraration/split_netcdf_files
+-->

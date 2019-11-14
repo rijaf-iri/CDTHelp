@@ -1,5 +1,5 @@
 ---
-title: "Validation"
+title: "Data Extraction"
 output:
   html_document:
     toc: true
@@ -9,5 +9,5 @@ output:
 ---
 
 <!--
-image dir /images/merging_data/validation
+image dir /images/data_prepraration/data_extraction
 -->

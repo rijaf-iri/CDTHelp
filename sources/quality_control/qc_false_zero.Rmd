@@ -1,0 +1,88 @@
+---
+title: "False-Zeros Check for daily rainfall"
+output:
+  html_document:
+    toc: false
+---
+
+A false zero is an incorrect report of zero precipitation during the rainy season. The false zeros mainly come from the conversion of file with a given format to another file format, in most cases, the missing values from the original file format are not flagged and left blank, when converting the file to the other format the missing values are replaced by zeros. To check the false zeros, the percentage of zero values for each month at the target station is computed and compared to the average of the percentage of zero values for the corresponding month of the neighbor stations. If this percentage is greater than a given threshold, this month is flagged as a month containing false zeros.
+
+To perform false-zeros check for daily rainfall data, use the menu `r menuselection('Quality Control','QC station data', 'Rainfall', 'False-Zeros check')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters.
+
+The tab `r onglet('Data')` allows to enter the inputs data and set the parameters for the QC.
+
+`r put.image("images/quality_control/quality_control/False-zero_tab-data.gif", height = 50, width = 50)`
+
+1. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+
+2. Click on this button to set the parameters to be used for the false-zeros check. It displays a dialog box 
+
+`r put.image("images/quality_control/quality_control/False-zero_fz-pars.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+* (__a__) Specify the minimum number of neighbor stations to be used.
+* (__b__) Specify the maximum number of neighbor stations to be used.
+* (__c__) Specify the radius of search (in kilometers) to select the neighbor stations.
+* (__d__) Specify the minimum number of days without missing values for each month.
+* (__e__) Specify the minimum threshold to be used to flag that a month contains a false zero. If the ratio of the percentage of zero at the target station and the average of the percentage of zero of the neighbor stations is greater than this threshold the corresponding month is flagged as suspicious.
+</div>  
+<div style="clear: right;"></div>
+
+3. Specify the folder to save the results by browsing it from the button ![][browsebutf] or typing the full path to the folder.
+4. Click the button `r button('&nbsp;&nbsp;&nbsp; Check False-Zeros &nbsp;&nbsp;&nbsp;')` to execute.
+
+This creates a folder named __FALSE.ZEROS.CHECK_data__ under the folder you provided (__4__) to save the results of the false zeros check. Inside this folder 2 directories and 1 file are created:
+
+* __CDTDATASET__: directory containing all the required files used by CDT.
+* __CDTSTATIONS__: directory containing the checked data, when you did a correction for the flagged months. The name of the file containing the corrected data is the same as the name of the file from the input (__1__).
+* __FalseZeros.rds__: an index file, you will need to reload the outputs of the false zeros check if you want to view the results or to continue the correction later.
+
+The tab `r onglet('False-Zeros')` allows to view the results of the false zeros check.
+
+`r put.image("images/quality_control/quality_control/False-zero_tab-fz.gif", height = 50, width = 50)`
+
+1. If you already performed a false zeros check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to __FalseZeros.rds__ under the folder __FALSE.ZEROS.CHECK_data__ by browsing it through the button ![][browsebutf] on the right.
+2. The stations with a month containing false zeros are listed here. You can select a station and click on the button `r button('&nbsp;&nbsp;&nbsp; View & Edit Result &nbsp;&nbsp;&nbsp;')` to view the results. You can use the buttons `r button('<<')` or `r button('>>')` to switch to the previous or next station. It will open a table on the right panel showing the output of the false zeros for the selected station.
+
+`r put.image("images/quality_control/quality_control/False-zero_view-edit.gif", height = 90, width = 90)`    
+
+<div style="display: inline-block; float: right; width: 95%">
+* (__a__) The ID of the station.
+* (__b__) The months on which false zeros have been suspected.
+* (__c__) The percentage of zero at the target station.
+* (__d__) The percentage of zero for the closest neighbor station.
+* (__e__) The distance in kilometers of the closest neighbor station.
+* (__f__) The average of the percentage of zero for the neighbor stations.
+* (__g__) The maximum value of the percentage of zero for the neighbor stations.
+* (__h__) The ratio of (__c__) and (__f__).
+* (__i__) The ratio of (__c__) and the interpolated percentage of zero of the neighbor stations using the method of weighted inverse distance.  
+</div>  
+<div style="clear: right;"></div>
+
+<div style="display: inline-block; float: right; width: 95%">
+After verifying each month flagged as containing false zeros, if you find that the month does not have false zeros, you can remove it from the table by right-clicking on the column of row number corresponding to this month then from the pop menu click on `r menuselection('Delete selected row')`.
+</div>  
+<div style="clear: right;"></div>
+
+`r put.image("images/quality_control/quality_control/False-zero_remove-line.gif", height = 100, width = 70)`   
+
+<div style="display: inline-block; float: right; width: 95%">
+After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.  
+</div>  
+<div style="clear: right;"></div>
+
+3. Select here the date corresponding to a month with false zeros to display the values of the rainfall data at the target station and the neighbor stations for this month. If you select the date from the drop-down list, click on the button `r button('DISPLAY')` to display the table. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next date.
+
+`r put.image("images/quality_control/quality_control/False-zero_diplay-month.gif", height = 50, width = 50)`   
+
+4. After saving the changes you made on the table (__2__), click on the button `r button('&nbsp;&nbsp;&nbsp; Replace False Zeros &nbsp;&nbsp;&nbsp;')` to replace all the false zeros by missing values.  
+
+
+To replace all the values flagged as suspicious for all stations by missing values, use the following command to the `R` console:
+
+```r
+indexFZ <- "/<path_to>/FALSE.ZEROS.CHECK_data/FalseZeros.rds"
+CDT:::FalseZerosCheck_replaceAll(indexFZ, action = "all")
+```
+
+Change <__path_to__>  with the exact path. The corrected data are located under the folder __FALSE.ZEROS.CHECK_data/CDTSTATIONS__.  

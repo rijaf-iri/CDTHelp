@@ -69,7 +69,7 @@ div.tocify {
 
 ## [Selecting CDT station data format](manipulate_cdt_data.html#select.cdtdata)
 
-# [Transform NetCDF files into CDT Dataset](transform_cdt_dataset.html)
+# [Assess Data Availability](assess_availability.html)
 
 # [Download Data](download_data.html)
 
@@ -79,7 +79,15 @@ div.tocify {
 
 ## [Download RFE](download_data.html#download.rfe)
 
-# [Filling missing dekadal temperature values](fill_na_temp.html)
+# [Aggregating Time Series](aggregate_TS.html)
+
+# [Aggregate/Disaggregate Spatial NetCDF data](aggregate_SP.html)
+
+# [Transform NetCDF files into CDT Dataset](transform_cdt_dataset.html)
+
+# [Data Extraction](data_extraction.html)
+
+# [Split NetCDF files into CDT NetCDF format](split_netcdf_files.html)
 
 # [Data Format Conversion](data_conversion.html)
 
@@ -89,39 +97,47 @@ div.tocify {
 
 ## [Create GrADS Descriptor File from CDT NetCDF files](data_conversion.html#conversion.grads)
 
-# [Aggregating Time Series](aggregate_TS.html)
-
-# [Aggregate/Disaggregate Spatial NetCDF data](aggregate_SP.html)
+# [Filling missing dekadal temperature values](fill_na_temp.html)
 
 # [Check Stations Coordinates](check_stations_coords.html)
 
-# [Assess Data Availability](assess_availability.html)
+# [False-Zeros Check for daily rainfall](qc_false_zero.html)
 
-# [Quality Control](quality_control.html)
+# [Outliers Check for rainfall data](qc_outliers_precip.html)
 
-## [Rainfall data](quality_control.html)
-
-### [False zero check](quality_control.html#false.zero.check)
-
-### [Outliers check](quality_control.html#rr.outlier.check)
-
-## [Temperatures data](quality_control.html)
-
-### [Outliers check](quality_control.html#tt.outlier.check)
+# [Outliers Check for temperatures data](qc_outliers_temp.html)
 
 # [Homogeneity Test](homogeneity_test.html)
 
-# [Merging Rainfall](merging_rainfall.html)
+# [Spatial Interpolation](spatial_interpolation.html)
 
-# [Merging Temperature](merging_temperature.html)
+# [Merging Rainfall Data](merging_rainfall.html)
 
-# [Scale merged data](scale_merged_data.html)
+## [Compute Bias Coefficients](merging_rainfall.html#rr.calc.bias)
 
-# [Updating Dekadal Rainfall](update_dekadal_rainfall.html)
+## [Apply Bias Correction](merging_rainfall.html#rr.apply.bias)
 
-# [Validation](validation.html)
+## [Merging Data](merging_rainfall.html#rr.merge.data)
 
-# [Data Extraction](data_extraction.html)
+# [Merging Temperature Data](merging_temperature.html)
+
+## [Compute Downscaling Coefficients](merging_temperature.html#tt.calc.downcoef)
+
+## [Reanalysis Downscaling](merging_temperature.html#tt.reanal.down)
+
+## [Compute Bias Coefficients](merging_temperature.html#tt.calc.bias)
+
+## [Apply Bias Correction](merging_temperature.html#tt.apply.bias)
+
+## [Merging Data](merging_temperature.html#tt.merge.data)
+
+# [Scale Merged Data](scale_merged_data.html)
+
+# [Merging - Cross-Validation](cross_validation.html)
+
+## [Precipitation Data](cross_validation.html#rr.cv.mrg)
+
+## [Temperature Data](cross_validation.html#tt.cv.mrg)
 
 # [Summary Statistics](summary_statistics.html)
 

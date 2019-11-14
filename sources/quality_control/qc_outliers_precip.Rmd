@@ -1,0 +1,195 @@
+---
+title: "Outliers Check for rainfall data"
+output:
+  html_document:
+    toc: false
+---
+
+To check the outliers for rainfall data, use the menu `r menuselection('Quality Control','QC station data', 'Rainfall', 'Outliers Check')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters.
+
+The tab `r onglet('Data')` allows to enter the inputs data and set the parameters for the QC.
+
+`r put.image("images/quality_control/quality_control/qc-rr_tab-data.gif", height = 50, width = 50)`
+
+1. Select the time step of the station data to be checked.
+2. Select from the drop-down list the file containing the station data to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+3. If you want to use elevation data to select the neighbor stations, check this box and click on the button `r button('Settings')`, it will display a dialog box which allows to specify the elevation data to be used.
+
+`r put.image("images/quality_control/quality_control/qc_elev-data.gif", height = 40, width = 40)`
+
+<div style="display: inline-block; float: right; width: 95%">
+If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__), you have to provide the DEM file in (__a2__) in NetCDF format, select it from the drop-down list if it is already loaded or open it from the browse button ![][browsebutf]. If the elevation data come from the station data select (__b__).
+</div>  
+<div style="clear: right;"></div>
+
+
+4. Click on this button to set the parameters to perform the outliers check.
+
+`r put.image("images/quality_control/quality_control/qc-rr_outliers-pars.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__a__) Specify the maximum possible value of rainfall. It depends on the time step of the input data and the region or country.
+- (__b__) Set the confidence level to perform the temporal check.
+- (__c__) Specify the minimum number of neighbor stations to be used to perform the spatial check.
+- (__d__) Specify the maximum number of neighbor stations to be used to perform the spatial check.
+- (__e__) Specify the radius of search (in kilometers) to select the neighbor stations.
+- (__d__) If using elevation data to select the neighbor stations, specify the maximum altitude difference (in meter) to be used to select the neighbor stations. For example, 800 m means the stations located 400 m above and below the target station will be selected.
+- (__g__) and (__h__) provide the thresholds to check if the value at the target is an **isolated precipitation**
+</div>  
+<div style="clear: right;"></div>
+
+`r put.image("images/quality_control/quality_control/qc-rr_isp.gif", height = 23, width = 23)`
+
+<div style="display: inline-block; float: right; width: 85%">
+An observation is implausible and called **isolated precipitation** if this value is extremely suspicious and very large compared to those of neighboring stations and verifies the following conditions
+
+<center>**_Pmax_ < _ISPMAX_** and **_Pobs_ > _ISPOBS_**</center>
+
+Where
+**_Pmax_**: maximum value of neighboring stations
+**_Pobs_**: value of target station
+**_ISPMAX_** and **_ISPOBS_**: values to be provided by the user, depend on the climatology of the region
+</div>  
+<div style="clear: right;"></div>
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__i__), (__j__) and (__k__) provide the thresholds to check if the value at the target is an **isolated dryness**
+</div>  
+<div style="clear: right;"></div>
+
+`r put.image("images/quality_control/quality_control/qc-rr_isd.gif", height = 25, width = 25)`
+
+<div style="display: inline-block; float: right; width: 85%">
+An observation is implausible and called **isolated dryness** if this value is extremely suspicious and very small compared to those of neighboring stations and verifies the following conditions
+
+<center>**_Pmin_ ⩾ _ISDMIN_** ; **_Pobs_ < _ISDOBS_** and **_P25_ ⩾ _ISDQ1_**</center>
+
+Where
+**_Pmin_** : minimum value of neighboring stations 
+**_Pobs_** : value of target station
+**_P25_** : the first quartile of neighboring stations
+**_ISDMIN_**, **_ISDOBS_** and **_ISDQ1_**: values to be provided by the user, depend on the climatology of the region
+</div>  
+<div style="clear: right;"></div>
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__l__) interquartile range factor (**_IQRF_**): a multiplier factor to be provided by the user (usually between 2 and 4, the default value is 2.8) to check the **too large deviation** values.
+</div>  
+<div style="clear: right;"></div>
+
+<div style="display: inline-block; float: right; width: 85%">
+To check the deviation of an observation from the values of the neighbor stations, the approach using the Z-score will be applied.
+
+If an observation is strongly deviate to the right-tail (**too large deviation above**) and stated as implausible if
+
+<center>**(_Pobs_ - _Q50_) / _IQR_ > 2 . _IQRF_** and **_Pobs_ > _ISPBOS_**</center>
+
+Where
+**_Pobs_** : value of target station
+**_Q50_** : the median of neighboring stations
+**_IQR_** : the interquartile range of neighboring stations
+**_IQRF_**: value to be provided by the user
+</div>  
+<div style="clear: right;"></div>
+
+`r put.image("images/quality_control/quality_control/qc-rr_tlga.gif", height = 25, width = 25)`
+
+<div style="display: inline-block; float: right; width: 85%">
+If an observation is strongly deviate to the left-tail (**too large deviation below**) and stated as implausible if
+
+<center>**(_Pobs_ - _Q50_) / _IQR_ < -_IQRF_** and **_Pobs_ ≤ _ISDOBS_**</center>
+
+</div>  
+<div style="clear: right;"></div>
+
+`r put.image("images/quality_control/quality_control/qc-rr_tlgb.gif", height = 25, width = 25)`
+
+5. Type the full path to the folder to save the results of the outliers check, or use the browse button ![][browsebutf].
+6. Click the button `r button('Check Outliers')` to run the quality control.
+
+This creates a folder named __RR.OUTLIERS.CHECK_data__ under the folder you provided (__5__) to save the results of the outliers check. Inside this folder 2 directories and 1 file are created:  
+
+- **CDTDATASET**: directory containing all the required files used by CDT
+- **CDTSTATIONS**: directory containing the checked data, when you did a correction on the suspicious values. The name of the file containing the corrected data is the same as the name of the file from the input (__2__).
+- **OutliersCheck.rds**: an index file, you will need to reload the outputs of QC if you want to view the results or to continue the correction of suspicious values later.
+
+The tab `r onglet('QC Outputs')` allows to view the results of the QC
+
+`r put.image("images/quality_control/quality_control/qc_tab-output.gif", height = 50, width = 50)`
+
+1. If you already performed an outliers check, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **OutliersCheck.rds** under the folder **RR.OUTLIERS.CHECK_data** by browsing it through the button ![][browsebutf] on the right.
+2. The stations with suspicious values are listed here. You can select a station and click on the button `r button('&nbsp;&nbsp;&nbsp; View & Edit Result &nbsp;&nbsp;&nbsp;')` to view  and edit the result of the QC for this station. You can use the buttons `r button('<<')` or `r button('>>')` to switch to the previous or next station. It will open a table on the right panel showing the output of the QC for the selected station.
+
+`r put.image("images/quality_control/quality_control/qc-rr_table-out.gif", height = 80, width = 80)`
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__a__) The ID of the station.
+- (__b__) The dates on which suspicious values are found.
+- (__c__) The observed suspicious values.
+- (__d__) Statistics from the temporal check if available.
+- (__e__) Statistics from the spatial check if available.
+- (__f__) Description of the suspicious value from temporal check. 
+    - *negative.values*: the value is negative;
+    - *greater.than.maximum.values*: the value is greater than the maximum possible value you provided when you set the parameters of the QC;
+    - *upper.outliers*: the value is flagged as too large compared to the time series from this month.
+- (__g__) Description of the suspicious value from spatial check.
+    - *spatial.not.outliers*: the value is flagged as *upper.outliers* from the temporal check but not an outlier when a spatial check is performed;
+    - *isolated.precipitation*: the value is flagged as isolated precipitation;
+    - *isolated.dryness*: the value is flagged as isolated dryness;
+    - *too.large.deviation.above*: the value is flagged very high compared to the values of the neighbor stations;
+    - *too.large.deviation.below*: the value is flagged very small compared to the values of the neighbor stations.
+- (__h__) You can specify here an action to take when you want to correct the suspicious value. By default, the value in this column is **1**, this means no correction will be done. If you put a flag **1** in this column, the corresponding value in column (__c__) will be kept. If you leave this column blank, the corresponding value in (__c__) will be replaced by missing value.
+- (__i__) If you put a value in this column, this value will be taken to replace the value in (__c__). This column takes the priority, whenever you put a flag **1** or leave blank the column (__h__).
+
+After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.
+</div>  
+<div style="clear: right;"></div>
+
+3. Select here the month to display a chart of the time series for this month and the suspicious values detected from the temporal check. If you select the month from the drop-down list, click on the button `r button('PLOT')` to display the chart. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next month.
+
+`r put.image("images/quality_control/quality_control/qc-rr_graph.gif", height = 80, width = 80)`   
+
+4. Select here the date corresponding to a suspicious value to plot it on a map for this date. If you select the date from the drop-down list, click on the button `r button('PLOT')` to display the map. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next date.
+
+`r put.image("images/quality_control/quality_control/qc-rr_map.gif", height = 60, width = 60)`   
+
+5. After saving the changes you made on the table, click on the button `r button('&nbsp;&nbsp;&nbsp; Replace Outliers &nbsp;&nbsp;&nbsp;')` for the changes to take effect.
+
+<br>
+
+To replace all the values flagged as suspicious for all stations by missing values, use the following command to the `R` console:
+
+```r
+indexQC <- "/<path_to>/RR.OUTLIERS.CHECK_data/OutliersCheck.rds"
+CDT:::QC.RR_replaceAll(indexQC, action = "all")
+```
+
+Change <__path_to__> with exact path. The corrected data are located under the folder __RR.OUTLIERS.CHECK_data/CDTSTATIONS__.
+
+<br>
+
+The tab `r onglet('Zoom')` allows to zoom the displayed map.
+
+`r put.image("images/quality_control/quality_control/qc_tab-zoom.gif", height = 50, width = 50)`   
+
+1. Enter here the bounding box of the area to be displayed on the map.
+2. After setting the bounding box (1), click this button for the change to take effect.
+3. Reset the zoom.
+4. Zoom in
+5. Zoom out
+6. Draw a rectangle on the map to zoom in an area.
+7. Move the displayed map.
+
+Right click on the map to deactivate the active zoom.
+
+<br>
+
+The tab `r onglet('Add Layers')` allows to superpose other layers.
+
+`r put.image("images/quality_control/quality_control/qc_tab-layer.gif", height = 50, width = 50)`   
+
+1. Check the box and select the shapefile from the drop-down list or open it from ![][browsebutf] to add boundaries to the active map.
+2. Check the box and select the NetCDF file containing the DEM (Digital Elevation Model) from the drop-down list or open it from ![][browsebutf] to add elevation data as background to the active map.
+3. Check the box and enter or browse the full path to the NetCDF data (from satellite or radar) to display. Do not forget to provide a sample file and change the filename format by clicking on the button `r button('Settings')` (see [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting) for more details).
+4. Select the type of the map. You can choose between a pixel-based image or a contour map.
+

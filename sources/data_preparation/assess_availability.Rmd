@@ -6,5 +6,5 @@ output:
 ---
 
 <!--
-image dir /images/quality_control/assess_availability
+image dir /images/data_prepraration/assess_availability
 -->
