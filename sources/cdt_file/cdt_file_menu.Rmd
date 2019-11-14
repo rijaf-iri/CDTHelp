@@ -24,7 +24,7 @@ startCDT()
 
 When CDT starts, you are presented with the GUI as shown in the figure.
 
-`r put.image("images/cdt_file/cdt_main0.gif", height = 80, width = 80)`
+`r put.image("images/cdt_file/cdt_main0.png", height = 90, width = 90)`
 
 ## CDT Main Window `r anchor.point('cdt.main.win')`
 
@@ -125,7 +125,7 @@ You can save an image displayed on the right panel by using the menu `r menusele
 
 ##### CDT Configurations
 
-The menu `r menuselection('File','Configuration')` allows to select the language, set the missing values code, change the working directory, and configure the Tck/Tk libraries.
+The menu `r menuselection('File','Configuration')` allows to select the language, set the missing values code, change the working directory, set the bounding box of the domain you are going to work in, and configure the Tck/Tk libraries.
 
 The tab `r onglet('CDT Configuration')` allows to set general CDT configuration options
 
@@ -137,6 +137,11 @@ The tab `r onglet('CDT Configuration')` allows to set general CDT configuration 
 4. allows to browse a directory tree to set the working directory 
 
  >  Changing "CDT Configuration - Language" needs to restart CDT to take effect 
+
+
+The tab `r onglet('Spatial Configuration')` allows to define the bounding box of the region you want. If you set here the bounding box, you do not need to specify it again when it will be needed in other menu.
+
+`r put.image("images/cdt_file/cdt_config_bbox.gif", height = 45, width = 55)`
 
 The tab `r onglet('Tcl Configuration')` allows to specify the Tcl/Tk libraries installation
 
@@ -178,7 +183,7 @@ The toolbar provides access to few functions in the File menu, plus additional t
 * ![][saveimage] allows to save current displayed image in the right panel as JPEG or PNG, same as the menu `r menuselection('File','Save Image As...')`.
 * ![][opentable] allows to open a `data.frame` and directly display it on a table without loading into CDT.
 * ![][savetable] allows to [save a table](#save.table) displayed in the right panel, same as `r menuselection('File','Save table')`.
-* ![][executetask] allows to execute task from different functions listed in the menus.
+* ![][executetask] allows to execute task from different functions listed in the menus. You have to click on it to execute the current task when it is activated.
 * ![][spinbox] a spinbox allows to specify the actual dimensions (height and width) of the visible image.
 * ![][redrawplot0] redraws displayed image after changing the height or width from the spinbox. After any change on the dimensions of the image through the spinbox, this button will be activated and becomes ![][redrawplot1], you have to redraw the plot to get the new dimensions.
 * ![][closetab] Close open tabs.
@@ -215,7 +220,7 @@ When loading  data or running some functions, you can track and follow messages 
 
 ### Status Bar `r anchor.point('status.bar')`
 
-On the left side of the status bar, you can get a long description of the widget (button, input entry, list box, combo box, ...) you are hovering over (not available for all widgets). In addition, when you hold your mouse over the widget, a short description of the widget’s purpose will be displayed.
+On the left side of the status bar, you can get a long description of the widget (button, input entry, list box, combo box, ...) you are hovering over (not available for all widgets). In addition, when you hold your mouse over the widget, a short description of the widget’s purpose will be displayed. On the right side, as the task progresses towards completion, the progress bar displays the task's percentage of completion.
 
 `r put.image("images/cdt_file/status_bar1.gif", height = 300)`
 

@@ -5,6 +5,69 @@ output:
     toc: true
 ---
 
-<!--
-image dir /images/quality_control/check_stations_coords
--->
+The menu `r menuselection('Quality Control', 'Check Stations Coordinates')` allows to check if there are duplicated and implausible coordinates, or stations outsides a provided shapefile. It will display a tabbed widget on the left panel, allows to enter the inputs data.
+
+The tab `r onglet('Input')` allows to enter the inputs data and run the command to check and correct the stations coordinates.
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_tab-data.gif", height = 50, width = 50)`
+
+1. Select the input data format containing the coordinates of the stations to be checked.  Available data formats are: [**CDT coordinates file**](cdt_data_input.html#cdt.coords.data), [**CDT stations data format**](cdt_data_input.html#cdt.format.data).
+2. Select from the drop-down list the file containing the coordinates of the stations to be checked if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+3. Select the shapefile containing the country boundaries if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+4. Specify a distance (in km) from the country boundaries. This distance will be used to create a buffer around the country outlines. All stations located outside the boundaries, but still located inside the buffer, will be supposed to be part of the network.
+5. Type the full path to the folder to save the outputs or browse it.
+6. Click the button `r button('Check Coordinates')` to check the stations coordinates.
+
+7. click on the button `r button('&nbsp;&nbsp;&nbsp; View/Edit Results &nbsp;&nbsp;&nbsp;')` to view  and edit the results of the verification. It will open a table on the right panel displaying the stations with missing, duplicated or invalid coordinates, or stations with coordinates outsides of the boundaries.
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_table.gif", height = 60, width = 60)`
+
+8. Click the button `r button('Correct Coordinates')` to correct the wrong coordinates if there are any. To correct the stations coordinates, change the values in the table. To remove a station from the input data,  right-click on the column of row number corresponding to this station then from the pop menu click on `r menuselection('Delete selected row')` as shown in the figure below. 
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_delete.gif", height = 70, width = 70)`
+
+<div style="display: inline-block; float: right; width: 95%">
+After editing this table, you have to save the changes you made. You can go to the menu `r menuselection('File', 'Save table')` or click on the button ![][savetable] in the toolbar to save the table. If the table is saved correctly, you should see an output message *“Table saved successfully”*.  
+</div>  
+<div style="clear: right;"></div>
+
+This creates a folder named __CHECK.COORDS_data__ under the folder you provided in (__5__) to save the results of the verification. Inside this folder 1 directory and 3 files are created:  
+
+- **CDTDATASET**: directory containing all the required files used by CDT.
+- **CoordinatesCheck.rds**: an index file, you will need to reload the outputs of the verification if you want to view the results or to continue the correction of the coordinates of stations later.
+- **Stations_to_Check.csv**: a table containing the information on the stations that need verification.
+- **Checked_Coords_<*Filename*>.csv**: file containing the corrected coordinates, where __<*Filename*>__ is the input file name you provided in (**2**)
+
+The tab `r onglet('Maps')` allows to display a map of the stations location.
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_tab-maps.gif", height = 50, width = 50)`
+
+1. If you want to view or edit the output from a previous stations coordinates checking, you can check this box, the input field below will be activated and you can provide the full path to **CoordinatesCheck.rds** under the folder **CHECK.COORDS_data** by browsing it through the button ![][browsebutf] on the right.
+
+2. Click on `r button('&nbsp;&nbsp;&nbsp; Display Stations Coordinates &nbsp;&nbsp;&nbsp;')` to display the map of the stations location on the right panel.
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_plot.gif", height = 60, width = 60)`
+
+Click on the button `r button('Options')` on the right to change the color, the symbol and the size of the symbol to be used to display the stations locations; or to change color and the width of the boundaries lines. 
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_mapOpt.gif", height = 40, width = 40)`
+
+Clicking on the color will pop up a dialog box allowing you to select a color.
+
+
+
+
+The tab `r onglet('Zoom')` allows to zoom the displayed map.
+
+`r put.image("images/quality_control/quality_control/qc_tab-zoom.gif", height = 50, width = 50)`   
+
+1. Enter here the bounding box of the area to be displayed on the map.
+2. After setting the bounding box (1), click this button for the change to take effect.
+3. Reset the zoom.
+4. Zoom in
+5. Zoom out
+6. Draw a rectangle on the map to zoom in an area.
+7. Move the displayed map.
+
+Right click on the map to deactivate the active zoom.
+
