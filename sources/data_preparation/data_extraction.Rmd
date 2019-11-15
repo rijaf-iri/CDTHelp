@@ -2,12 +2,145 @@
 title: "Data Extraction"
 output:
   html_document:
-    toc: true
-    toc_depth: 2
-    toc_float:
-      collapsed: false
+    toc: false
 ---
 
-<!--
-image dir /images/data_prepraration/data_extraction
--->
+
+To extract data from a NetCDF dataset readable by CDT to a given spatial support such as a points, polygons or rectangle, use the menu `r menuselection('Data Preparation', 'Data Extraction')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters.
+
+The tab `r onglet('Input')` allows to enter the inputs NetCDF data and the shapefile.
+
+`r put.image("images/data_prepraration/data_extraction/tab_input.gif", height = 50, width = 50)`
+
+1. Select the temporal resolution of the input NetCDF dataset to extarct. Valid options: minutes, hourly, daily, pentad, dekadal or monthly data.
+2. In case of minutes and hourly, select here the time step of the input data.
+3. Select the format of the input data. Available data formats are: [**NetCDF gridded data**](cdt_data_input.html#cdt.ncdf.data) and [**CDT dataset format (gridded)**](cdt_data_input.html#cdt.dataset)
+4. In case of *NetCDF gridded data*, type the full path to the folder containing the NetCDF files or browse it, and click on the button `r button('Settings')`. A dialog box will be displayed in which you can provide a sample file and change the filename format of the NetCDF file. If the input data is a *CDT dataset format (gridded)*, type the full path to the index file of the CDT dataset or browse it. 
+5. If you want to display a map to select the location to extract the data, provide here the shapefile to be displayed on the map. Select it from the drop-down list if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+6. Select the attribute to display on the [status bar](cdt_file_menu.html#status.bar) or to use when the extraction support is polygons.
+7. Click `r button('Display Map')` to display the map on the right panel. When you move the cursor over the map, the longitude, latitude and the name of the polygon (depending on the attribute field selected in **6**) at the cursor position will be displayed on the [status bar](cdt_file_menu.html#status.bar).
+8. Click `r button('Open Attribute Table')` to display a table of the attributes continaing inside the shapefile on the right panel.
+
+`r put.image("images/data_prepraration/data_extraction/shp_attr_table.gif", height = 60, width = 70)`
+
+The tab `r onglet('Locations')` allows to specify the support on which the data will be extracted.
+
+`r put.image("images/data_prepraration/data_extraction/tab_location.gif", height = 50, width = 50)`
+1. If a map is displayed, you can use these buttons to zoom in and out, or to specify the region to be displayed by entering its bounding box in the entry fields. Right click on the map to deactivate the zoom's button.
+2. Select the support on which you want to extract the data. Valid options are: _One Point_, _Multiple Points_, _Rectangle_, _One Polygon_ and _Multiple Polygons_.
+
+- **One Point**: allows to extract data on a single point.
+
+`r put.image("images/data_prepraration/data_extraction/extract_one_point.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+To get the location you want to extract the data, you can enter the longitude and latitude of this location (when using this method, you do not need to provide a shapefile and display the map), or you can click on the button `r button('GET')` when it turns red click on the map to get the point.
+Instead of extracting the data on the exact grid, you can perform a spatial average over the grid surrounding the target grid by setting the **Pad** entries. For example, if you want to extract a spatial average of the data over all grids located within a distance 0.1 degree on the longitude and 0.2 degree on the latitude from the coordinates you provided, enter 0.1 on the column **Pad** corresponding to the longitude and 0.2 for latitude.
+</div>  
+<div style="clear: right;"></div>
+
+- **Multiple Points**: allows to extract data over a multiple locations.
+
+`r put.image("images/data_prepraration/data_extraction/extract_multi_point.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+
+It will display the dialog box below.
+
+`r put.image("images/data_prepraration/data_extraction/extract_multi_point_dlg.gif", height = 50, width = 50)`
+
+- (__A__) Input file to use to get the coordinates of the locations to be extracted, see below for more details. If you use this option,  you do not need to provide a shapefile and display the map.
+- (__B__) Click this button to reset all selected locations.
+- (__C__) All selected locations will be displayed here.
+
+</div>  
+
+<div style="display: inline-block; float: right; width: 95%">
+There are several ways to extract the data over a multiple points.
+
+-  You can enter the longitude and latitude of one location then click on `r button('ADD')` to add the point on the list in (__C__).
+-  You can click on the button `r button('GET')` and when it turns red click on the map to get the point, when `r button('ADD')` turns red click on it to add the selected point on the list in (__C__).
+-  You can get the coordinates of the locations from a CDT coordinates file. Select `r radiobutton('CDT coordinates file')` on (__A__) then select the file from the drop-down list if it is already loaded, or open it from the browse button ![][browsebutf] on the right. All the locations will be displayed in (__C__).
+- You can get the coordinates of the locations from a CDT stations data format file. Select `r radiobutton('CDT stations data format')` on (__A__) then select the file from the drop-down list if it is already loaded, or open it from the browse button ![][browsebutf] on the right. All the locations will be displayed in (__C__).
+
+The same as a single point, you can spatially average the data over the grid surrounding each location by providing the **Pad**.
+
+If you got all the locations you want click `r button('OK')`.
+</div>  
+<div style="clear: right;"></div>
+
+- **Rectangle**: allows to extract data over a selected rectangular area. 
+
+`r put.image("images/data_prepraration/data_extraction/extract_rectangle.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+To select the area you want to extract the data, you can do as follow
+
+- specify the bounding box of the rectangle by entering the minimum and maximum longitude and latitude (when using this method, you do not need to provide a shapefile and display the map), 
+- click on the button `r button('GET')` when it turns red drag the cursor on the map to get the desired rectangle.
+
+`r put.image("images/data_prepraration/data_extraction/extract_rectangle_map.gif", height = 60, width = 60)`
+
+</div>  
+<div style="clear: right;"></div>
+
+- **One Polygon**: allows to extract data over a selected polygon.
+
+`r put.image("images/data_prepraration/data_extraction/extract_one_poly.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+To select the polygon you want to extract the data, you can do as follow
+
+- select the name of the polygon from the drop-down list, the name listed here is corresponding to the attribute field you have selected from the tab `r onglet('Input')` number (**6**), 
+- click on the button `r button('GET')` when it turns click on the map to select the desired polygon.
+
+`r put.image("images/data_prepraration/data_extraction/extract_one_poly_map.gif", height = 60, width = 60)`
+
+</div>  
+<div style="clear: right;"></div>
+
+
+- **Multiple Polygons**: allows to extract data over a multiple polygons.
+
+`r put.image("images/data_prepraration/data_extraction/extract_mutli_poly.gif", height = 50, width = 50)`
+
+<div style="display: inline-block; float: right; width: 95%">
+
+The name of the polygons listed in the drop-down list are from the attribute field you have selected from the tab `r onglet('Input')` number (**6**).
+
+It will display the dialog box below.
+
+`r put.image("images/data_prepraration/data_extraction/extract_mutli_poly_dlg.gif", height = 50, width = 50)`
+
+- (__A__) Button to get all the polygons from the shapefile, see below for more details.
+- (__B__) Click this button to reset all selected polygons.
+- (__C__) All selected polygons will be displayed here.
+
+</div>  
+
+<div style="display: inline-block; float: right; width: 95%">
+There are three ways to extract the data over a multiple polygons.
+
+-  You can select the name of the polygon from the drop-down list then click on `r button('ADD')` to add it on the list in (__C__). 
+-  You can click on the button `r button('GET')` and when it turns red click on the map to select the desired polygon, when `r button('ADD')` turns red click on it to add the selected polygon on the list in (__C__).
+-  You can get the all the polygons from the shapefile by clicking the button `r button('Get All Polygons')` on (__A__). The name of the polygons will be displayed in (__C__).
+
+If you got all the polygons you want click `r button('OK')`.
+</div>  
+<div style="clear: right;"></div>
+
+
+The tab `r onglet('Output')` allows to specify the date range, the format of the extracted data.
+
+`r put.image("images/data_prepraration/data_extraction/tab_output.gif", height = 50, width = 50)`
+
+1. Set the date and time range of the data to extract. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+2. Select the start and end month you want to extract.
+3. Select the format of the extracted data. Available data formats are: _CDT Stations Data Format_, _CPT File Format_, _NetCDF Files_ and _Time|Lat|Lon|Value Format_. The formats listed here depend on the extraction support you have selected from the tab `r onglet('Locations')`. The _Time|Lat|Lon|Value Format_ format is a format of data with 4 columns, the 1st column is for the date or time, the 2nd column the latitude, the 3rd column the longitude, and the 4th column contains the value of the extracted data.
+4. When activated, check the box if you want to perform a spatial average of the data over the selected area or polygon. If this option is deactivated and the box is checked, this means that the data is spatially averaged over the selected area or polygon. If the box is unchecked, you get a gridded data.
+5. Specify the folder or the name of the file (depend on the data output format) to save the extracted data by browsing it from the button ![][browsebutf] or typing the full path to the folder or the file.
+6. Click on `r button('EXTRACT DATA')` to start the extraction.
+
+
+
+

@@ -8,9 +8,9 @@ output:
       collapsed: false
 ---
 
-## Download DEM `r anchor.point('download.dem')`
+## Download Digital Elevation Model `r anchor.point('download.dem')`
 
-The menu `r menuselection('Data Preparation', 'Download DEM')` allows to download the elevation data from a global DEM (Digital Elevation Model) extracted at any wanted area with a spatial resolution of 1 and 2 arc-minute.
+The menu `r menuselection('Data Preparation', 'Download Data', 'Download Digital Elevation Model')` allows to download the elevation data from a global DEM (Digital Elevation Model) extracted at any wanted area with a spatial resolution of 1 and 2 arc-minute.
 
 `r put.image("images/data_prepraration/download_data/download_dem.gif", height = 40, width = 45)`
 
@@ -22,34 +22,56 @@ Two files in NetCDF format will be downloaded into the folder you specified in (
 - **DEM_2_Arc-Minute.nc**: [ETOPO2v2c](http://iridl.ldeo.columbia.edu/SOURCES/.NOAA/.NGDC/.ETOPO2v2/) Global Gridded 2-minute elevation and bathymetric data.
 
 
-## Download Country boundary `r anchor.point('download.shp')`
+## Download Country Administrative Boundaries `r anchor.point('download.shp')`
 
 The menu `r menuselection('Data Preparation', 'Download Country boundary')` allows to download the country outlines and administrative subdivisions for countries in Africa from [GADM data](https://gadm.org/index.html).
 
-`r put.image("images/data_prepraration/download_data/download_shp.gif", height = 40, width = 45)`
+`r put.image("images/data_prepraration/download_data/download_shp.gif", height = 60, width = 65)`
 
-1. Select the country from the drop-down list.
-2. Select the administrative subdivisions to download. __0__ is the country boundaries, __1__ is the first subdivision (example: Region), __2__ the second subdivision (example: District), ...
-3. Specify the folder to save the downloaded ESRI shapefile by browsing it from the button ![][browsebutf] or typing the full path to the folder.
+1. Select the region where the country is located
+2. Select the country from the drop-down list.
+3. Select the administrative subdivisions to download. __0__ is the country boundaries, __1__ is the first subdivision (example: Region), __2__ the second subdivision (example: District), ...
+4. Specify the folder to save the downloaded ESRI shapefile by browsing it from the button ![][browsebutf] or typing the full path to the folder.
 
 
-## Download RFE `r anchor.point('download.rfe')`
+## Download Satellite Rainfall Estimates data `r anchor.point('download.rfe')`
 
-The menu `r menuselection('Data Preparation', 'Download RFE')` allows to download satellite rainfall products at daily and dekadal (10-days) temporal resolution.
+The menu `r menuselection('Data Preparation', 'Download Data', 'Download Satellite Rainfall Estimates data')` allows to download satellite rainfall products from 30 minutes to monthly temporal resolution.
 
-`r put.image("images/data_prepraration/download_data/download_rfe.gif", height = 50, width = 55)`
+`r put.image("images/data_prepraration/download_data/download_rfe.gif", height = 75, width = 70)`
 
-1. Select the satellite rainfall estimate product to download. For dekadal rainfall, 4 choices are available: __10-DAYS TAMSATv3__ (*Africa*), __10-DAYS TAMSATv2__ (*Africa*), __10-DAYS CHIRPSv2.0__ (*Global*) and __10-DAYS CHIRPv1.0__ (*Global*); for daily rainfall, you have 3 choices: __DAILY TAMSATv3__ (*Africa*), __DAILY TAMSATv2__ (*Africa*) and __DAILY CHIRPSv2.0__ (*Global*).
-2. Set the date range of the data to download. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
-3. Set the bounding box of the area to be downloaded. Type in the fields the minimum and maximum of the longitude and latitude in degree decimal.
-4. Specify the folder to save the downloaded rainfall data by browsing it from the button ![][browsebutf] or typing the full path to the folder.
+1. Select the temporal resolution of the satellite rainfall estimate product to download.
+2. In case of minutes or hourly data, select here the time step.
+3. Select the satellite rainfall estimate product to download. 
+4. Set the date and time range of the data to download. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+5. If the satellite rainfall estimate product requires a login to download the data, enter here the user name and the password you use to log in to your account. The URL of the website for login is displayed next to the label __Login to__. If you do not have an account yet, you can sign up to this URL.
+6. Click this button to display the information about the data. It will open your default web browser and display the link to the data or relevant information about the data.
+7. In case of this checkbox is activated, check it if you want to download the data from the Data Library of IRI. The IRI Data Library allows you to subset the data before downloading it into your computer, and it makes the download faster.
+8. Set the bounding box of the area to be downloaded. Type in the fields the minimum and maximum of the longitude and latitude in degree decimal.
+9. Specify the folder to save the downloaded rainfall data by browsing it from the button ![][browsebutf] or typing the full path to the folder.
 
-A folder containing the downloaded rainfall extracted over the area you specified in (__3__) will be created under the directory you provided in (__4__).
-- **Dekadal_TAMSATv3_Extracted**: dekadal rainfall from IRIDL [TAMSATv3](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v3p0/)
-- **Dekadal_TAMSATv2_Extracted**: dekadal rainfall from IRIDL [TAMSATv2](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v2p0/)
-- **Dekadal_CHIRPSv2.0_Extracted**: dekadal rainfall from IRIDL [CHIRPSv2.0](http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/)
-- **Dekadal_CHIRPv1.0_Extracted**: dekadal rainfall from IRIDL [CHIRPv1.0](http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRP/.v1p0/)
-- **Daily_TAMSATv3_Extracted**: daily rainfall from IRIDL [TAMSATv3](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v3p0/)
-- **Daily_TAMSATv2_Extracted**: daily rainfall from IRIDL [TAMSATv2](http://iridl.ldeo.columbia.edu/SOURCES/.Reading/.Meteorology/.TAMSAT/.TARCAT/.v2p0/)
-- **Daily_CHIRPSv2.0_Extracted**: daily rainfall from IRIDL [CHIRPSv2.0](http://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.daily-improved/)
+A folder containing the downloaded data will be created under the directory you provided in (__9__). This folder is created from the name of the satellite rainfall estimate product and the time step of the data.
 
+## Download Reanalysis data `r anchor.point('download.reanalysis')`
+
+The menu `r menuselection('Data Preparation', 'Download Data', 'Download Reanalysis data')` allows to download the minimum and maximum temperature data from different reanalysis products.
+
+`r put.image("images/data_prepraration/download_data/download_reanalysis.gif", height = 75, width = 70)`
+
+1. Select the variable you want to download. For the moment CDT allows you to download 2 variables minimum and maximum temperature.
+2. Select the reanalysis product. CDT allows you to get the data from 3 reanalysis products: __JRA-55__ (3 hourly temporal resolution), __MERRA-2__ (daily temporal resolution) and __ERA5__ (still under construction).
+3. Select the data portal you want to use to download the data. 
+
+   >  _Note for **JRA-55**_
+   >  The portal **_rda.ucar.edu_** is updated every 6 month, use this portal if you want to download a long series of data.
+   >  The portal **_jra.kishou.go.jp_** is updated every 3 hour with approximately 2 days latency, use this portal if you want to download the latest available data.
+
+4. Set the date and time range of the data to download. See [Setting date range](cdt_data_input.html#cdt.date.range) for more details.
+5. If the data portal requires a login to download the data, enter here the user name and the password you use to log in to your account. The URL of the data portal is displayed next to the label __Login to__. If you do not have an account yet, you can sign up to this URL.
+6. Click this button to display the information about the data. It will open your default web browser and display the link to the data portal.
+7. In case of this field is activated, enter here the full path to the executable of the software (GrADS or python) displayed on the label above to be used to format and extract the data.
+check it if you want to download the data from the Data Library of IRI. The IRI Data Library allows you to subset the data before downloading it into your computer, and it makes the download faster.
+8. Set the bounding box of the area to be downloaded. Type in the fields the minimum and maximum of the longitude and latitude in degree decimal.
+9. Specify the folder to save the downloaded data by browsing it from the button ![][browsebutf] or typing the full path to the folder.
+
+A folder containing the downloaded data will be created under the directory you provided in (__9__). This folder is created from the name of the reanalysis product and the time step of the data.

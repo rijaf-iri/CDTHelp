@@ -8,3 +8,4 @@ html_document:
     css: styles.css
     lib_dir: libs
     md_extensions: +hard_line_breaks+emoji+mmd_link_attributes
+

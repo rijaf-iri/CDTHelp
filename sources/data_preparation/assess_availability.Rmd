@@ -7,4 +7,77 @@ output:
 
 <!--
 image dir /images/data_prepraration/assess_availability
+/Users/rijaf/Desktop/ECHANGE/github_IRI_CDT/CDTHelp/html/images/data_prepraration/assess_availability/assess_tab-data.gif
 -->
+
+To asses the availability of station data both spatial and temporal, use the menu `r menuselection('Data Preparation','Assess Data Availability')`. It will display a tabbed widget on the left panel, allows to enter the inputs data and parameters, displays a table, graphics and maps of the outputs.
+
+The tab `r onglet('Input Data')` allows to specify the input station data.
+
+`r put.image("images/data_prepraration/assess_availability/assess_tab-data.gif", height = 50, width = 50)`
+
+1. Select the time step of the station data to assess.
+2. Select from the drop-down list the file containing the station data if it is already loaded, or open it from the browse button ![][browsebutf] on the right.
+3. Type the full path to the folder to save the outputs, or use the browse button ![][browsebutf].
+4. Click the button `r button('Assess Data Availability')` to run the assessment.
+
+This creates a folder named __ASSESS.DATA.AVAILABILITY_data__ under the folder you provided (__3__) to save the results of the assessment. Inside this folder 2 directories and 1 file are created:
+
+- **CDTDATASET**: directory containing all the required files used by CDT
+- **CDTSTATIONS**: directory containing 4 CSV files, _Annual_Average_number-stations.csv_: yearly average, minimum and maximum number of stations reporting data, _DataAvailability_percentage.csv_: percentage of non missing values for each station in CDT station data format, _Monthly_non-missing.csv_: number of non missing data for each station and each month in CDT station format. _Yearly_non-missing.csv_: number of non missing data for each station and each year in CDT station format.
+- **AssessDataAvailability.rds**: an index file, you will need to reload the outputs of the assessment if you want to visualize the results later.
+
+ >  **Note**: Each time you perform a station data availability assessment, rename the folder __ASSESS.DATA.AVAILABILITY_data__ or change the folder to save the outputs because CDT overwrites it.
+
+The tab `r onglet('Maps')` allows to display a map of the percentage of non missing values and the number of non missing values for each year.
+
+`r put.image("images/data_prepraration/assess_availability/assess_tab-maps.gif", height = 50, width = 50)`
+
+1. If you already performed a station data availability assessment, you do not need to run it again, you can check this box, the input field below will be activated and you can provide the full path to **AssessDataAvailability.rds** under the folder __ASSESS.DATA.AVAILABILITY_data__ by browsing it through the button ![][browsebutf] on the right.
+2. Click on the button `r button('PLOT')` to display a map of the percentage of available data. The button `r button('Options')` allows you to change the colorkey settings, the label of the axis and the title of the map, see [map options](#) for more details.
+
+`r put.image("images/data_prepraration/assess_availability/assess_map-avail.gif", height = 70, width = 70)`
+
+3. To display a map of the number of non missing value for each year, enter the year to be displayed then click on the button `r button('PLOT')`. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next year. The button `r button('Options')` allows you to change the colorkey settings, the label of the axis and the title of the map, see [map options](#) for more details.
+
+`r put.image("images/data_prepraration/assess_availability/assess_map-year.gif", height = 70, width = 70)`
+
+4. Select the type of the map. You can choose between a pixel-based image or a points map.
+
+The tab `r onglet('Graphs')` allows to display a chart or table of available data, the annual average of station reporting data, and a distance-correlation graphic.
+
+`r put.image("images/data_prepraration/assess_availability/assess_tab-graphs.gif", height = 50, width = 50)`
+
+1. Select here the station you want to display the chart or the table of available data. If you select the station from the drop-down list, click on the button `r button('PLOT')` to display the chart and `r button('DISPLAY')` for table. You can use the buttons `r button('<<')` and `r button('>>')` to switch to the previous or next station.
+2. Select what you want to display, **chart** or **table**.
+The chart displays the number of non missing value for each year
+
+`r put.image("images/data_prepraration/assess_availability/assess_chart.gif", height = 60, width = 70)`
+
+The table displays the number of non missing value for each month.
+
+`r put.image("images/data_prepraration/assess_availability/assess_table.gif", height = 60, width = 70)`
+
+3. Click the button `r button('Non-Missing Data Annual Average')` to display a graphic of the average number of stations reporting data each year.
+
+`r put.image("images/data_prepraration/assess_availability/assess_year-avg.gif", height = 60, width = 70)`
+
+4. Click the button `r button('Non-Missing Data Summary')` to display a graphic of the activities of the stations. The pink area represents the number of station reporting data and the cyan area represents the number of station with missing values (the stations are supposed to be in running but not report data).
+
+`r put.image("images/data_prepraration/assess_availability/assess_summary.gif", height = 60, width = 70)`
+
+5. The button `r button('Distance - Correlation')` displays a graphic based on distance and correlation. It allows you to have an overview on the quality of the spatial interpolation when you want to interpolate  those stations data.
+
+`r put.image("images/data_prepraration/assess_availability/assess_dist-corr.gif", height = 60, width = 70)`
+
+The tab `r onglet('Boundaries')` allows to add a shapefile on the map.
+
+`r put.image("images/data_prepraration/assess_availability/assess_tab-boundaries.gif", height = 50, width = 50)`
+
+Check the box and select the shapefile from the drop-down list or open it from ![][browsebutf] to add boundaries to the active map. Click on the button `r button('Options')` to change the width and of the color of the lines.
+
+
+
+
+
+

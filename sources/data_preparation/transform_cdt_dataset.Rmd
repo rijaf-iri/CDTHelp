@@ -14,7 +14,7 @@ The menu `r menuselection('Data Preparation', 'Transform NetCDF files into CDT D
 3. Type the full path to the folder containing the NetCDF files or browse it from the button ![][browsebutf] on the right.
 4. Provide a sample and change the filename format of the NetCDF file by clicking on the button `r button('Settings')` (see [Setting NetCDF data](cdt_data_input.html#cdt.ncdf.setting) for more details).
 5. If you already have a CDT dataset format and you want to add a new data, check this box.
-6. If the box in (__5__) is cheked, type here the full path to the index file of the CDT dataset or browse it from the button ![][browsebutf] on the right.
+6. If the box in (__5__) is cheked, type here the full path to the index file of the CDT dataset or browse it from the button ![][browsebutf] on the right. The index file is in the form <_Dataset name.rds_>, see below for an example.
 7. Type the full path to the folder to save the CDT dataset, or use the browse button ![][browsebutf].
 8. Specify the name of the dataset.
 

@@ -70,11 +70,11 @@ You can add a header to this file, and specify it when you import the data to CD
 [NetCDF](http://www.unidata.ucar.edu/software/netcdf/docs) files contain one or more variables, which are usually structured as regular multi-dimensional arrays. CDT can handle 2D (lat/lon) NetCDF data with several variables, in other words ***data for each date should be stored in a separate file***, a file may contain only data for one hour, day, pentad, dekad or month. For example, if we have a dekadal rainfall series, then the data for each dekad should be stored in a separate file as follows :
 
 ```
-rfe2014_01-dk1
-rfe2014_01-dk2
-rfe2014_01-dk3
-rfe2014_02-dk1
-rfe2014_02-dk2
+rfe2014_01-dk1.nc
+rfe2014_01-dk2.nc
+rfe2014_01-dk3.nc
+rfe2014_02-dk1.nc
+rfe2014_02-dk2.nc
  ......
 ``` 
 The format of the filenames is arbitrary. To read and write NetCDF file, CDT use the `ncdf4` package.
@@ -124,7 +124,7 @@ CDT uses `%s` to represent the year, month, dekad, pentad, day or hour.
 
 Suppose your file names are of the form *rfe_2016-06-dk3.nc*, you have to replace the years, months and dekads by **_%s_**. So you need to encode your file names when you specify them on CDT as follow: _**rfe_%s-%s-dk%s.nc**_.
 
-Here are some examples of how to format a netcdf file names.
+Here are some examples on how to format a netcdf file names.
 
 Time step |  netcdf file name            | CDT format
 --------- |  ----------------            | ----------

@@ -33,7 +33,7 @@ If the elevation data come from DEM (*Digital Elevation Model*), select (__a1__)
 - (__c__) Specify the minimum number of neighbor stations to be used to perform the spatial check.
 - (__d__) Specify the maximum number of neighbor stations to be used to perform the spatial check.
 - (__e__) Specify the radius of search (in kilometers) to select the neighbor stations.
-- (__d__) If using elevation data to select the neighbor stations, specify the maximum altitude difference (in meter) to be used to select the neighbor stations. For example, 800 m means the stations located 400 m above and below the target station will be selected.
+- (__f__) If using elevation data to select the neighbor stations, specify the maximum altitude difference (in meter) to be used to select the neighbor stations. For example, 800 m means the stations located 400 m above and below the target station will be selected.
 - (__g__) and (__h__) provide the thresholds to check if the value at the target is an **isolated precipitation**
 </div>  
 <div style="clear: right;"></div>

@@ -5,9 +5,11 @@ output:
     toc: false
 ---
 
-The menu `r menuselection('Aggregate Data', 'Aggregate/Disaggregate Spatial NetCDF data')` allows to perform a spatial aggregation and disaggregation, in other words, regridding. Regridding is the process of interpolating from one grid resolution to a different grid resolution.
+The menu `r menuselection('Data Preparation', 'Aggregate Data', 'Aggregate/Disaggregate Spatial NetCDF data')` allows to perform a spatial aggregation and disaggregation, in other words, regridding. Regridding is the process of interpolating from one grid resolution to a different grid resolution.
 
-`r put.image("images/data_prepraration/aggregate_data/aggregate_SP.gif", height = 60, width = 65)`
+
+`r put.image("images/data_prepraration/aggregate_data/aggregate_SP.gif", height = 60, width = 70)`
+
 
 1. Select the number of files to regrid. Valid options: *One NetCDF file* or *Multiple NetCDF files*.
 2. If you want to regrid one NetCDF file, select the file from the drop-down list if it is already loaded or  open it from the button ![][browsebutf] in the right. In case of multiple NetCDF files, type the full path to the folder containing the NetCDF files or browse it.
@@ -21,6 +23,7 @@ The menu `r menuselection('Aggregate Data', 'Aggregate/Disaggregate Spatial NetC
 8. In case of aggregation, if you set yourself the new grid, two interpolation methods are available: **mean** and **bilinear** interpolation. The *mean* method consist in averaging the values from the old grid points which are included in the new grid point. This method is usually used to aggregate elevation data from a high resolution Digital Elevation Model. If you use a grid points from other NetCDF file, the *bilinear* method only is available. For disaggregation, only the *bilinear* method is available.
 9. If a grid from other NetCDF data is not used to regrid, (**5** is not checked), specify here the bounding box and the resolution of the new grid.
 10. Type the full path to the folder to save the regridded data or browse it.
+11. If (**5**) is checked, check this box if you want to change the names of the variable and dimensions of the regridded NetCDF files to be the same as the NetCDF file used for regridding.
 
 Click on the button ![][executetask] to regrid the data.
 

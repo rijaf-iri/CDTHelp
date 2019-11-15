@@ -73,11 +73,13 @@ div.tocify {
 
 # [Download Data](download_data.html)
 
-## [Download DEM](download_data.html#download.dem)
+## [Download Digital Elevation Model](download_data.html#download.dem)
 
-## [Download Country boundary](download_data.html#download.shp)
+## [Download Country Administrative Boundaries](download_data.html#download.shp)
 
-## [Download RFE](download_data.html#download.rfe)
+## [Download Satellite Rainfall Estimates data](download_data.html#download.rfe)
+
+## [Download Reanalysis data](download_data.html#download.reanalysis)
 
 # [Aggregating Time Series](aggregate_TS.html)
 
@@ -138,6 +140,12 @@ div.tocify {
 ## [Precipitation Data](cross_validation.html#rr.cv.mrg)
 
 ## [Temperature Data](cross_validation.html#tt.cv.mrg)
+
+# [Spatial Points Data (CDT Format)](validation_cdt_frmt.html)
+
+# [Gridded Data (NetCDF Format)](validation_ncdf_frmt.html)
+
+# [Validate multiple data sets](validation_multi_data.html)
 
 # [Summary Statistics](summary_statistics.html)
 

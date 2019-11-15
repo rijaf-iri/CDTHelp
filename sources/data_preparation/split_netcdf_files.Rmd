@@ -2,9 +2,44 @@
 title: "Split NetCDF files into CDT NetCDF format"
 output:
   html_document:
-    toc: true
+    toc: false
 ---
 
-<!--
-image dir /images/data_prepraration/split_netcdf_files
--->
+The menu `r menuselection('Data Preparation', 'Split NetCDF files into CDT NetCDF format')` allows to a multidimensional NetCDF data to a [NetCDF data](cdt_data_input.html#cdt.ncdf.data) readable by CDT.
+
+`r put.image("images/data_prepraration/format_cdt_data/split_netcdf_files.gif", height = 50, width = 60)`
+
+1. Select the number of files to split. Valid options: *One NetCDF file* or *Several NetCDF files*.
+2. Click the button `r button('OPEN')` to open the NetCDF file (for *One NetCDF file*) or a sample from the NetCDF files (for *Several NetCDF files*). It will open a dialog box allowing you to select the variable to be extracted and specify the dimensions.
+
+`r put.image("images/data_prepraration/format_cdt_data/split_netcdf_variable.gif", height = 70, width = 60)`
+
+<div style="display: inline-block; float: right; width: 95%">
+- (__a__) Select the variable to extract.
+- (__b__) select the dimension for longitude.
+- (__c__) select the dimension for latitude.
+- (__d__) select the dimension for time.
+- (__e__) If the variable has more than 3 dimensions, the additional dimensions will be displayed here.
+- (__f__) Select at which value or level of the additional dimension the selected variable in (__1__) should be extracted.
+- (__g__) all information concerning the variables and dimensions inside the NetCDF file are displayed here.
+</div>  
+<div style="clear: right;"></div>
+
+3. In the case of *Several NetCDF files*, change the filename format to conform with the NetCDF files name. Replace the string linking all NetCDF files by **_%S_**. For example, if you have a NetCDF files as follows
+
+```
+precip_1991-1995.nc
+precip_1996-2000.nc
+precip_2001-2005.nc
+precip_2006-2010.nc
+ ......
+``` 
+The format of the filename must be ```precip_%S.nc```.
+
+4. Type the full path to the folder to save the converted NetCDF files or browse it.
+
+Click on the button ![][executetask] to split the data.
+
+The converted NetCDF data are saved in a new folder named **CDT_NetCDF_Format** under the folder you provided to save the output in (**4**).
+
+
