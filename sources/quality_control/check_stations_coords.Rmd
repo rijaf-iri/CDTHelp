@@ -5,9 +5,9 @@ output:
     toc: true
 ---
 
-The menu `r menuselection('Quality Control', 'Check Stations Coordinates')` allows to check if there are duplicated and implausible coordinates, or stations outsides a provided shapefile. It will display a tabbed widget on the left panel, allows to enter the inputs data.
+The menu `r menuselection('Quality Control', 'Check Stations Coordinates')` allows to check if there are duplicated and implausible coordinates, or stations outsides a provided shapefile. It will display a tabbed widget on the left panel, allows to enter the inputs data and display the results of the checking.
 
-The tab `r onglet('Input')` allows to enter the inputs data and run the command to check and correct the stations coordinates.
+The tab `r onglet('Input')` allows to enter the inputs data, run the command to check and correct the stations coordinates.
 
 `r put.image("images/quality_control/check_stations_coords/chkstn_tab-data.gif", height = 50, width = 50)`
 
@@ -38,6 +38,8 @@ This creates a folder named __CHECK.COORDS_data__ under the folder you provided 
 - **Stations_to_Check.csv**: a table containing the information on the stations that need verification.
 - **Checked_Coords_<*Filename*>.csv**: file containing the corrected coordinates, where __<*Filename*>__ is the input file name you provided in (**2**)
 
+ >  **Note**: Each time you check the coordinates of the stations, rename the folder __CHECK.COORDS_data__ or change the folder to save the outputs because CDT overwrites it.
+
 The tab `r onglet('Maps')` allows to display a map of the stations location.
 
 `r put.image("images/quality_control/check_stations_coords/chkstn_tab-maps.gif", height = 50, width = 50)`
@@ -48,18 +50,30 @@ The tab `r onglet('Maps')` allows to display a map of the stations location.
 
 `r put.image("images/quality_control/check_stations_coords/chkstn_plot.gif", height = 60, width = 60)`
 
+<div style="display: inline-block; float: right; width: 95%">
+
 Click on the button `r button('Options')` on the right to change the color, the symbol and the size of the symbol to be used to display the stations locations; or to change color and the width of the boundaries lines. 
 
 `r put.image("images/quality_control/check_stations_coords/chkstn_mapOpt.gif", height = 40, width = 40)`
 
 Clicking on the color will pop up a dialog box allowing you to select a color.
+</div>  
+<div style="clear: right;"></div>
 
+3. Click on `r button('&nbsp;&nbsp;&nbsp; Display on Google Maps &nbsp;&nbsp;&nbsp;')` to display the map of the stations on Google Maps. This will open your default web browser and display the location of the stations on Google. You need an Internet connection to be able to use this function.
 
+`r put.image("images/quality_control/check_stations_coords/chkstn_googlemap.gif", height = 90, width = 90)`
+
+Click on the pin to get the information about the station. If you want to get a specific location from the map, zoom in to the location and right click on it to get the coordinates.
+
+`r put.image("images/quality_control/check_stations_coords/chkstn_rightclick.gif", height = 50, width = 50)`
+
+You can select and copy the displayed coordinates and use it to correct the coordinates of the station.
 
 
 The tab `r onglet('Zoom')` allows to zoom the displayed map.
 
-`r put.image("images/quality_control/quality_control/qc_tab-zoom.gif", height = 50, width = 50)`   
+`r put.image("images/quality_control/check_stations_coords/chkstn_tab-zoom.gif", height = 50, width = 50)`   
 
 1. Enter here the bounding box of the area to be displayed on the map.
 2. After setting the bounding box (1), click this button for the change to take effect.
